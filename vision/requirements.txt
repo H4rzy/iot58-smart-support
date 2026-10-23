@@ -1,0 +1,7 @@
+# simulate.py needs only paho-mqtt.
+# publisher.py (webcam) also needs opencv-python and mediapipe.
+# Install into vision/.venv (gitignored):
+#   python -m venv vision/.venv && vision/.venv/Scripts/python -m pip install -r vision/requirements.txt
+paho-mqtt>=2.0,<3
+opencv-python>=4.9
+mediapipe>=0.10.14

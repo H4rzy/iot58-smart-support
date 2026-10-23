@@ -1,0 +1,6 @@
+PASS priority_demo: global queue, payment priority, dedup, dispatch, 409 guards, ACK downlink, ARRIVED, response, DONE, EWMA, CSAT, cancel, forecast.
+PASS duplicate_demo: T20261009-0011, five deliveries -> one ticket and receipt.
+PASS escalation_demo: NV01 -> NV03 timeout reassignment -> L1 -> L2 MQTT alert.
+PASS spam_demo: repeated new-ID suspicious requests -> alert/lock, no new tickets.
+PASS abnormal_demo: overload, safe ETA, schema/topic guards, HTTP400/404, Telegram disabled.
+Demo reset -> READY; synthetic history preserved.

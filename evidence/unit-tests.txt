@@ -1,0 +1,61 @@
+
+> huit-iot58-smart-support@2.0.0 test
+> node --test test/*.test.js
+
+✔ T14 EWMA exact alpha .3, validates negative input (1.6884ms)
+✔ T15 ETA zero free staff is safe and rank formula exact (0.2749ms)
+✔ T16 P90 nearest-rank with empty and one sample (0.2599ms)
+✔ T17 overload uses on-duty capacity strict greater-than (0.2121ms)
+✔ Metrics measure physical arrival, keep ACK latency separate and empty N/A (2.1324ms)
+✔ SLA denominator includes outstanding old requests, excludes cancellation (1.5073ms)
+✔ T06 staff canonical score (2.1964ms)
+✔ T07 BUSY/OFFLINE and reserved staff never selected (0.6337ms)
+✔ T08 zone bonus wins; attempted staff excluded (0.2956ms)
+✔ ties prefer lower active count then older assignment then lexical (0.2033ms)
+✔ T18 lambda four matching weekday/hour windows; rate in tickets/minute (5.281ms)
+✔ T19 staffing utilization and units exact (0.7863ms)
+✔ Data-driven forecast changes when history changes and excludes future/wrong hour (5.1466ms)
+✔ Zone capacity does not count a multi-skill staff three times (1.1ms)
+✔ Virtual clock60x: 1 second real ->1 minute virtual; pause/reset deterministic (0.5884ms)
+✔ Store weekday/hour independent of host TZ (1.1527ms)
+✔ T01 consultation base20 / T02 payment base50 (2.8209ms)
+✔ T03 aging +5/min protects consultation from starvation (0.4281ms)
+✔ T04 escalation +20 per level (0.2026ms)
+✔ T05 equal priority oldest then lexical deterministic (13.8691ms)
+✔ callback-style ACK is durable before its downlink flush (24.1109ms)
+✔ ingress persists ticket+dedup before its application receipt can be flushed (8.6943ms)
+✔ atomic persisted backup recovers when latest state file is corrupt (7.601ms)
+✔ REST validation, status codes, authorization, rejected transition audit (86.3586ms)
+✔ Telegram disabled without token; no network call or crash (2.7646ms)
+✔ callback rejects unauthorized chat and answers query (0.8988ms)
+✔ enabled Telegram assigned staff ACK and DONE after physical ARRIVED (13.6626ms)
+✔ enabled Telegram DONE rejects wrong staff and premature transition (0.9796ms)
+✔ known staff identity from unknown chat still rejected independently (1.1425ms)
+✔ approved group resolves staff user identity, unknown group member rejected (0.627ms)
+✔ manager allowlisted chat can override DONE after physical ARRIVED (0.7387ms)
+✔ T09 duplicate msg_id ignored and duplicate receipt confirms delivery (11.6118ms)
+✔ T10 DONE rejected before ARRIVED, T11 ACK valid, T12 ARRIVED requires ACK (2.1784ms)
+✔ T13 only resolved service EWMA updates AHT, physical response excludes ACK (3.5332ms)
+✔ T20 cancel only pending, releases reservation, no AHT update (0.5585ms)
+✔ global priority queue B payment outranks A; dispatch matches B (1.2384ms)
+✔ no ACK reassigns once each, then escalates L1 and L2 (0.9745ms)
+✔ spam locks after five suspicious requests, unlocks automatically; malformed topics rejected (1.2129ms)
+✔ CSAT timeout releases device and reset clears ticket/locks with fresh READY command (0.9532ms)
+✔ CMD_APPLIED receipt uses current cmd_id, never loops (0.5152ms)
+✔ persisted engine state retains dedup/tickets/staff assignments (0.9378ms)
+✔ virtual60x clock does not accelerate real SLA timeout (0.797ms)
+✔ reassigned staff ACK window stays PENDING before absolute L1 threshold (0.5713ms)
+✔ demo reset snapshots explicitly clear offline device FIFO; receipts never carry reset flag (0.4143ms)
+✔ OLED summary stays under768 bytes even with large ticket audit history (2.1941ms)
+✔ offline events carrying old ticket context cannot cancel/arrive/rate a newer ticket (1.0945ms)
+✔ optional event context fields validate type/length; CMD_APPLIED is audited without new ID (0.3996ms)
+✔ untrusted reserved msg_id keys cannot bypass persisted dedup cache (0.2921ms)
+✔ CSAT and spam countdown ticks do not flood durable command acknowledgments (1.2374ms)
+ℹ tests 49
+ℹ suites 0
+ℹ pass 49
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 276.2176

@@ -1,0 +1,3 @@
+Wokwi CLI v0.28.1 (7cf4ffaebfd8)
+
+Found 1 info

@@ -1,0 +1,14 @@
+{
+  "at": "2026-10-09T17:27:15.775Z",
+  "mode": "controls",
+  "source": "Actual Node-RED REST and MQTT; XSS fixture only in security test",
+  "checks": [
+    "real MQTT A/B events render two-ticket global queue with PAYMENT first",
+    "UI staff availability triggers dispatch; UI ACK publishes real MQTT downlink; DONE disabled before ARRIVED",
+    "MQTT ARRIVED enables UI DONE; resolved ticket leaves active queue",
+    "CSAT metrics, UI clock set60/pause and DEMO mode toggle update real API",
+    "confirmed UI reset clears tickets and sends READY state; history preserved",
+    "zero JavaScript fatal errors"
+  ],
+  "errors": []
+}

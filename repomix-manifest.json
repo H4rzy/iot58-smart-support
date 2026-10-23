@@ -1,0 +1,218 @@
+{
+  "generated_at": "2026-10-09T17:47:55.660173+00:00",
+  "repomix_version": "1.18.1",
+  "command": "npx --yes repomix@1.18.1 --config repomix.config.json",
+  "output": "repomix-output.xml",
+  "output_bytes": 3894384,
+  "sha256": "f65f6cf765232a3baaad7e7b391a319efabf05634c3179cfa06516107646d804",
+  "packed_files_count": 107,
+  "reported_tokens_o200k_base": 1411954,
+  "scope": "All non-ignored project text, uncompressed, including complete synthetic history, lockfiles and legacy extracted text",
+  "security_check": "Repomix reported no suspicious files",
+  "xml_validation": "Parsed successfully with Python ElementTree",
+  "included_files": [
+    ".gitignore",
+    "README.md",
+    "analytics/README.md",
+    "analytics/seed_history.py",
+    "application/README.md",
+    "application/app.js",
+    "application/index.html",
+    "application/styles.css",
+    "docker-compose.local.yml",
+    "docs/ACCEPTANCE_MATRIX.md",
+    "docs/ALGORITHMS.md",
+    "docs/API.md",
+    "docs/ARCHITECTURE.md",
+    "docs/BOM.md",
+    "docs/COURSE_OUTLINE_MAPPING.md",
+    "docs/DELIVERABLE_CHECKLIST.md",
+    "docs/DEMO_SCRIPT_FINAL.md",
+    "docs/FINAL_AUDIT.md",
+    "docs/FULL_DEMO.md",
+    "docs/HARDWARE_BONUS.md",
+    "docs/IMPLEMENTATION_CONTRACT.md",
+    "docs/MQTT_TOPICS.md",
+    "docs/PRESENTATION_SCRIPT_FINAL.md",
+    "docs/QUICK_DEMO.md",
+    "docs/REPORT_FINAL.md",
+    "docs/REQUIREMENTS.md",
+    "docs/RUBRIC_TRACEABILITY.md",
+    "docs/SECURITY.md",
+    "docs/SLIDES_FINAL_CONTENT.md",
+    "docs/TEN_WEEK_PLAN.md",
+    "docs/TEST_PLAN.md",
+    "docs/TEST_RESULTS.md",
+    "docs/VIVA_QA.md",
+    "evidence/README.md",
+    "evidence/acceptance-summary.json",
+    "evidence/browser-controls-results.json",
+    "evidence/browser-static-results.json",
+    "evidence/firmware-compile.txt",
+    "evidence/firmware-gestures.txt",
+    "evidence/mqtt-scenarios.txt",
+    "evidence/repository-audit.json",
+    "evidence/unit-tests.txt",
+    "evidence/wokwi-e2e-results.json",
+    "evidence/wokwi-lint.txt",
+    "evidence/wokwi-offline-results.json",
+    "legacy/README.md",
+    "legacy/original-materials/extracted-text.txt",
+    "legacy/wokwi-demo-v1/DEMO_SCRIPT.md",
+    "legacy/wokwi-demo-v1/README.md",
+    "legacy/wokwi-demo-v1/SCRIPT_DEMO_NHANH.md",
+    "legacy/wokwi-demo-v1/diagram.json",
+    "legacy/wokwi-demo-v1/libraries.txt",
+    "legacy/wokwi-demo-v1/sketch.ino",
+    "node-red/.env.example",
+    "node-red/README.md",
+    "node-red/data/.gitkeep",
+    "node-red/data/history.json",
+    "node-red/data/staff.json",
+    "node-red/flows.json",
+    "node-red/lib/analytics.js",
+    "node-red/lib/config.js",
+    "node-red/lib/dispatch.js",
+    "node-red/lib/forecast.js",
+    "node-red/lib/priority.js",
+    "node-red/lib/runtime.js",
+    "node-red/lib/telegram.js",
+    "node-red/lib/ticket-engine.js",
+    "node-red/lib/utils.js",
+    "node-red/lib/validation.js",
+    "node-red/package-lock.json",
+    "node-red/package.json",
+    "node-red/settings.js",
+    "node-red/test/analytics.test.js",
+    "node-red/test/dispatch.test.js",
+    "node-red/test/forecast.test.js",
+    "node-red/test/priority.test.js",
+    "node-red/test/runtime.test.js",
+    "node-red/test/telegram.test.js",
+    "node-red/test/ticket-engine.test.js",
+    "repomix.config.json",
+    "tools/README.md",
+    "tools/browser_smoke_test.js",
+    "tools/demo_reset.js",
+    "tools/final_acceptance_check.py",
+    "tools/local_broker.js",
+    "tools/mosquitto.conf",
+    "tools/mqtt_scenario_test.js",
+    "tools/package-lock.json",
+    "tools/package.json",
+    "tools/repository_audit.py",
+    "wokwi-demo/README.md",
+    "wokwi-demo/browser-probe.cjs",
+    "wokwi-demo/diagram.json",
+    "wokwi-demo/libraries.txt",
+    "wokwi-demo/partitions.csv",
+    "wokwi-demo/platformio.ini",
+    "wokwi-demo/sketch.ino",
+    "wokwi-demo/test_gestures.py",
+    "wokwi-demo/wokwi.toml",
+    "worklogs/agent-1.md",
+    "worklogs/agent-2.md",
+    "worklogs/agent-3.md",
+    "worklogs/agent-4.md",
+    "worklogs/agent-5.md",
+    "worklogs/agent-6.md",
+    "worklogs/agent-7.md",
+    "worklogs/agent-8.md"
+  ],
+  "excluded_project_files": [
+    {
+      "path": "evidence/dashboard-desktop.png",
+      "bytes": 310484,
+      "reason": "binary asset; source text and extracted legacy text are packed separately"
+    },
+    {
+      "path": "evidence/dashboard-mobile.png",
+      "bytes": 269083,
+      "reason": "binary asset; source text and extracted legacy text are packed separately"
+    },
+    {
+      "path": "evidence/dashboard-priority-queue.png",
+      "bytes": 325860,
+      "reason": "binary asset; source text and extracted legacy text are packed separately"
+    },
+    {
+      "path": "evidence/wokwi-ack-blue.png",
+      "bytes": 123690,
+      "reason": "binary asset; source text and extracted legacy text are packed separately"
+    },
+    {
+      "path": "evidence/wokwi-final-spam.png",
+      "bytes": 122604,
+      "reason": "binary asset; source text and extracted legacy text are packed separately"
+    },
+    {
+      "path": "evidence/wokwi-offline-buffer.png",
+      "bytes": 124375,
+      "reason": "binary asset; source text and extracted legacy text are packed separately"
+    },
+    {
+      "path": "evidence/wokwi-offline-reboot-replay.png",
+      "bytes": 122718,
+      "reason": "binary asset; source text and extracted legacy text are packed separately"
+    },
+    {
+      "path": "evidence/wokwi-queue.png",
+      "bytes": 122659,
+      "reason": "binary asset; source text and extracted legacy text are packed separately"
+    },
+    {
+      "path": "evidence/wokwi-resolved-csat.png",
+      "bytes": 122571,
+      "reason": "binary asset; source text and extracted legacy text are packed separately"
+    },
+    {
+      "path": "legacy/original-materials/Kich_ban_thuyet_trinh_May_lay_so_goi_nhan_vien_ho_tro_thong_minh.docx",
+      "bytes": 42079,
+      "reason": "binary asset; source text and extracted legacy text are packed separately"
+    },
+    {
+      "path": "legacy/original-materials/vie_16x9_slide-nhan-dien-huit.pptx.pptx",
+      "bytes": 17724011,
+      "reason": "binary asset; source text and extracted legacy text are packed separately"
+    },
+    {
+      "path": "node-red/.config.nodes.json",
+      "bytes": 15644,
+      "reason": "ignored by project .gitignore"
+    },
+    {
+      "path": "node-red/.config.runtime.json",
+      "bytes": 133,
+      "reason": "ignored by project .gitignore"
+    },
+    {
+      "path": "node-red/.config.runtime.json.backup",
+      "bytes": 40,
+      "reason": "ignored by project .gitignore"
+    },
+    {
+      "path": "node-red/data/events.jsonl",
+      "bytes": 60732,
+      "reason": "generated runtime state/audit log"
+    },
+    {
+      "path": "node-red/data/state.json",
+      "bytes": 11115,
+      "reason": "generated runtime state/audit log"
+    },
+    {
+      "path": "node-red/data/state.json.bak",
+      "bytes": 11153,
+      "reason": "generated runtime state/audit log"
+    }
+  ],
+  "excluded_directory_trees": [
+    ".tools/",
+    "analytics/__pycache__/",
+    "node-red/context/",
+    "node-red/node_modules/",
+    "tools/node_modules/",
+    "wokwi-demo/.build-tools/",
+    "wokwi-demo/.pio/"
+  ]
+}

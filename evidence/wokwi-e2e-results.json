@@ -1,0 +1,544 @@
+{
+  "at": "2026-10-09T17:33:28.411Z",
+  "broker": "broker.hivemq.com:1883",
+  "base_topic": "huit/iot58/n20-smart-support/store/s1",
+  "source_sha256": "9a5e9ea9f08e2f86940a4fd86bc5301f5ac5854fd2784dfa8492381bc0fa128a",
+  "proofs": [
+    {
+      "check": "A short consultation uplink",
+      "ticket_id": "T20261009-0041"
+    },
+    {
+      "check": "global two-ticket queue B outranks A",
+      "rows": [
+        {
+          "device": "B01",
+          "priority": 50.02525
+        },
+        {
+          "device": "A01",
+          "priority": 20.518166666666666
+        }
+      ]
+    },
+    {
+      "check": "ACK downlink applied; DONE before ARRIVED HTTP409"
+    },
+    {
+      "check": "physical ARRIVED; response created→arrived",
+      "response_time_ms": 9705,
+      "ack_latency_ms": 549
+    },
+    {
+      "check": "DONE RESOLVED, EWMA and physical satisfied CSAT"
+    },
+    {
+      "check": "C double cancel physical"
+    },
+    {
+      "check": "A physical spam lock"
+    }
+  ],
+  "serial": "SAVE\nSHARE\nDocs\nSIGN IN\nSIGN UP\nsketch.ino\ndiagram.json\nLibrary Manager\nlibraries.txt\npartitions.csv\n1\n2\n3\n4\n5\n6\n7\n8\n# Name, Type, SubType, Offset, Size, Flags\nnvs, data, nvs, 0x9000, 0x5000,\notadata, data, ota, 0xe000, 0x2000,\napp0, app, ota_0, 0x10000, 0x140000,\napp1, app, ota_1, 0x150000, 0x140000,\nspiffs, data, spiffs, 0x290000, 0x160000,\ncoredump, data, coredump, 0x3f0000, 0x10000,\nSimulation\n01:08.237\n57%\nets Jul 29 2019 12:21:46\r\n\r\nrst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)\r\nconfigsip: 0, SPIWP:0xee\r\nclk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00\r\nmode:DIO, clock div:2\r\nload:0x3fff0030,len:1156\r\nload:0x40078000,len:11456\r\nho 0 tail 12 room 4\r\nload:0x40080400,len:2972\r\nentry 0x400805dc\r\nE (29) esp_littlefs: ./managed_components/joltwallet__littlefs/src/littlefs/lfs.c:1382:error: Corrupted dir pair at {0x0, 0x1}\r\n\r\nE (30) esp_littlefs: mount failed,  (-84)\r\nE (34) esp_littlefs: Failed to initialize LittleFS\r\nLITTLEFS: initializing blank partition\r\nE (45) esp_littlefs: ./managed_components/joltwallet__littlefs/src/littlefs/lfs.c:1382:error: Corrupted dir pair at {0x0, 0x1}\r\n\r\nE (53) esp_littlefs: mount failed,  (-84)\r\nE (56) esp_littlefs: Failed to initialize LittleFS\r\nLITTLEFS restored 0 events\nMQTT_RETRY: state=-4\nQUEUED A01 DEVICE_SYNC (A01-0F8BC7CA-000001)\nMQTT_ONLINE: FIFO replay awaits server receipts\r\nQUEUED B01 DEVICE_SYNC (B01-0F8BC7CA-000002)\nQUEUED C01 DEVICE_SYNC (C01-0F8BC7CA-000003)\nOUTBOX_SEND A01-0F8BC7CA-000001 mqtt=1\nCMD_APPLIED A01 L2 CMD-1791566925911-A01-20\nQUEUED A01 CMD_APPLIED (A01-0F8BC7CA-000004)\nCMD_APPLIED B01 READY CMD-1791566925911-B01-21\nQUEUED B01 CMD_APPLIED (B01-0F8BC7CA-000005)\nCMD_APPLIED C01 L2 CMD-1791566925911-C01-22\nQUEUED C01 CMD_APPLIED (C01-0F8BC7CA-000006)\nCMD_APPLIED A01 L2 CMD-1791567112421-A01-23\nQUEUED A01 CMD_APPLIED (A01-0F8BC7CA-000007)\nCMD_APPLIED B01 READY CMD-1791567112525-B01-24\nQUEUED B01 CMD_APPLIED (B01-0F8BC7CA-000008)\nCMD_APPLIED C01 L2 CMD-1791567112525-C01-25\nQUEUED C01 CMD_APPLIED (C01-0F8BC7CA-000009)\nOUTBOX_SEND B01-0F8BC7CA-000002 mqtt=1\nDEMO_RESET A01: explicitly discarded 2 pre-reset events\nCMD_APPLIED A01 READY CMD-1791567113774-A01-1\nQUEUED A01 CMD_APPLIED (A01-0F8BC7CA-000010)\nDEMO_RESET B01: explicitly discarded 3 pre-reset events\nCMD_APPLIED B01 READY CMD-1791567113774-B01-2\nQUEUED B01 CMD_APPLIED (B01-0F8BC7CA-000011)\nDEMO_RESET C01: explicitly discarded 3 pre-reset events\nCMD_APPLIED C01 READY CMD-1791567113774-C01-3\nQUEUED C01 CMD_APPLIED (C01-0F8BC7CA-000012)\nOUTBOX_SEND A01-0F8BC7CA-000010 mqtt=1\nCMD_APPLIED B01 READY CMD-1791567115705-B01-4\nQUEUED B01 CMD_APPLIED (B01-0F8BC7CA-000013)\nCMD_APPLIED A01 READY CMD-1791567117638-A01-5\nQUEUED A01 CMD_APPLIED (A01-0F8BC7CA-000014)\nOUTBOX_SEND B01-0F8BC7CA-000011 mqtt=1\nOUTBOX_SEND C01-0F8BC7CA-000012 mqtt=1\nCMD_APPLIED C01 READY CMD-1791567121251-C01-6\nQUEUED C01 CMD_APPLIED (C01-0F8BC7CA-000015)\nOUTBOX_SEND B01-0F8BC7CA-000013 mqtt=1\nDIAG_OFFLINE: actual WiFi/MQTT disabled for 20s; flash worker remains active\r\nQUEUED A01 REQUEST (A01-0F8BC7CA-000016)\nQUEUED B01 REQUEST (B01-0F8BC7CA-000017)\nDIAG_REBOOT: persisted outbox, restarting without flash erase\r\nets Jul 29 2019 12:21:46\r\n\r\nrst:0xc (SW_CPU_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)\r\nconfigsip: 0, SPIWP:0xee\r\nclk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00\r\nmode:DIO, clock div:2\r\nload:0x3fff0030,len:1156\r\nload:0x40078000,len:11456\r\nho 0 tail 12 room 4\r\nload:0x40080400,len:2972\r\nentry 0x400805dc\r\nLITTLEFS restored 5 events\nMQTT_ONLINE: FIFO replay awaits server receipts\r\nOUTBOX_SEND B01-0F8BC7CA-000013 mqtt=1\nQUEUED A01 DEVICE_SYNC (A01-B9DE61FE-000001)\nQUEUED B01 DEVICE_SYNC (B01-B9DE61FE-000002)\nQUEUED C01 DEVICE_SYNC (C01-B9DE61FE-000003)\nCMD_APPLIED A01 READY CMD-1791567124692-A01-7\nQUEUED A01 CMD_APPLIED (A01-B9DE61FE-000004)\nCMD_APPLIED B01 READY CMD-1791567124692-B01-8\nQUEUED B01 CMD_APPLIED (B01-B9DE61FE-000005)\nCMD_APPLIED C01 READY CMD-1791567124692-C01-9\nQUEUED C01 CMD_APPLIED (C01-B9DE61FE-000006)\nCMD_APPLIED B01 READY CMD-1791567133701-B01-10\nQUEUED B01 CMD_APPLIED (B01-B9DE61FE-000007)\nCMD_APPLIED A01 READY CMD-1791567133793-A01-11\nQUEUED A01 CMD_APPLIED (A01-B9DE61FE-000008)\nCMD_APPLIED C01 READY CMD-1791567133793-C01-12\nQUEUED C01 CMD_APPLIED (C01-B9DE61FE-000009)\nOUTBOX_SEND A01-0F8BC7CA-000014 mqtt=1\nOUTBOX_SEND A01-0F8BC7CA-000014 mqtt=1\nOUTBOX_SEND C01-0F8BC7CA-000015 mqtt=1\nOUTBOX_SEND A01-0F8BC7CA-000016 mqtt=1\nCMD_APPLIED A01 PEND CMD-1791567141650-A01-13\nQUEUED A01 CMD_APPLIED (A01-B9DE61FE-000010)\nOUTBOX_SEND B01-0F8BC7CA-000017 mqtt=1\nCMD_APPLIED B01 PEND CMD-1791567143837-B01-14\nQUEUED B01 CMD_APPLIED (B01-B9DE61FE-000011)\nOUTBOX_SEND A01-B9DE61FE-000001 mqtt=1\nDEMO_RESET A01: explicitly discarded 4 pre-reset events\nCMD_APPLIED A01 READY CMD-1791567144418-A01-1\nQUEUED A01 CMD_APPLIED (A01-B9DE61FE-000012)\nDEMO_RESET B01: explicitly discarded 4 pre-reset events\nCMD_APPLIED B01 READY CMD-1791567144418-B01-2\nQUEUED B01 CMD_APPLIED (B01-B9DE61FE-000013)\nDEMO_RESET C01: explicitly discarded 3 pre-reset events\nCMD_APPLIED C01 READY CMD-1791567144418-C01-3\nQUEUED C01 CMD_APPLIED (C01-B9DE61FE-000014)\nOUTBOX_SEND A01-B9DE61FE-000012 mqtt=1\nCMD_APPLIED A01 READY CMD-1791567146024-A01-4\nQUEUED A01 CMD_APPLIED (A01-B9DE61FE-000015)\nOUTBOX_SEND B01-B9DE61FE-000013 mqtt=1\nCMD_APPLIED B01 READY CMD-1791567149454-B01-5\nQUEUED B01 CMD_APPLIED (B01-B9DE61FE-000016)\nOUTBOX_SEND C01-B9DE61FE-000014 mqtt=1\nCMD_APPLIED C01 READY CMD-1791567151654-C01-6\nQUEUED C01 CMD_APPLIED (C01-B9DE61FE-000017)\nOUTBOX_SEND A01-B9DE61FE-000015 mqtt=1\nOUTBOX_SEND B01-B9DE61FE-000016 mqtt=1\nOUTBOX_SEND C01-B9DE61FE-000017 mqtt=1\nQUEUED A01 REQUEST (A01-B9DE61FE-000018)\nOUTBOX_SEND A01-B9DE61FE-000018 mqtt=1\nCMD_APPLIED A01 PEND CMD-1791567159072-A01-7\nQUEUED A01 CMD_APPLIED (A01-B9DE61FE-000019)\nOUTBOX_SEND A01-B9DE61FE-000019 mqtt=1\nQUEUED B01 REQUEST (B01-B9DE61FE-000020)\nOUTBOX_SEND B01-B9DE61FE-000020 mqtt=1\nCMD_APPLIED B01 PEND CMD-1791567164988-B01-8\nQUEUED B01 CMD_APPLIED (B01-B9DE61FE-000021)\nCMD_APPLIED A01 PEND CMD-1791567165290-A01-9\nQUEUED A01 CMD_APPLIED (A01-B9DE61FE-000022)\nOUTBOX_SEND B01-B9DE61FE-000021 mqtt=1\nCMD_APPLIED B01 ACK CMD-1791567165537-B01-10\nQUEUED B01 CMD_APPLIED (B01-B9DE61FE-000023)\nCMD_APPLIED A01 PEND CMD-1791567165817-A01-11\nQUEUED A01 CMD_APPLIED (A01-B9DE61FE-000024)\nOUTBOX_SEND A01-B9DE61FE-000022 mqtt=1\nQUEUED B01 STAFF_ARRIVED (B01-B9DE61FE-000025)\nOUTBOX_SEND B01-B9DE61FE-000023 mqtt=1\nOUTBOX_SEND A01-B9DE61FE-000024 mqtt=1\nOUTBOX_SEND B01-B9DE61FE-000025 mqtt=1\nCMD_APPLIED A01 L1 CMD-1791567174443-A01-12\nQUEUED A01 CMD_APPLIED (A01-B9DE61FE-000026)\nCMD_APPLIED B01 ARRIVED CMD-1791567174693-B01-13\nQUEUED B01 CMD_APPLIED (B01-B9DE61FE-000027)\nCMD_APPLIED B01 RATE CMD-1791567174822-B01-14\nQUEUED B01 CMD_APPLIED (B01-B9DE61FE-000028)\nOUTBOX_SEND A01-B9DE61FE-000026 mqtt=1\nQUEUED B01 CSAT (B01-B9DE61FE-000029)\nOUTBOX_SEND B01-B9DE61FE-000027 mqtt=1\nOUTBOX_SEND B01-B9DE61FE-000028 mqtt=1\nOUTBOX_SEND B01-B9DE61FE-000029 mqtt=1\nCMD_APPLIED B01 READY CMD-1791567183745-B01-15\nQUEUED B01 CMD_APPLIED (B01-B9DE61FE-000030)\nQUEUED C01 REQUEST (C01-B9DE61FE-000031)\nOUTBOX_SEND B01-B9DE61FE-000030 mqtt=1\nCMD_APPLIED A01 L2 CMD-1791567184577-A01-16\nQUEUED A01 CMD_APPLIED (A01-B9DE61FE-000032)\nOUTBOX_SEND C01-B9DE61FE-000031 mqtt=1\nCMD_APPLIED C01 PEND CMD-1791567189080-C01-17\nQUEUED C01 CMD_APPLIED (C01-B9DE61FE-000033)\nQUEUED C01 CANCEL_REQUEST (C01-B9DE61FE-000034)\nOUTBOX_SEND A01-B9DE61FE-000032 mqtt=1\nOUTBOX_SEND C01-B9DE61FE-000033 mqtt=1\nOUTBOX_SEND C01-B9DE61FE-000034 mqtt=1\nCMD_APPLIED C01 CANCEL CMD-1791567194680-C01-18\nQUEUED C01 CMD_APPLIED (C01-B9DE61FE-000035)\nOUTBOX_SEND C01-B9DE61FE-000035 mqtt=1\nCMD_APPLIED C01 READY CMD-1791567196232-C01-19\nQUEUED C01 CMD_APPLIED (C01-B9DE61FE-000036)\nQUEUED A01 INVALID_GESTURE (A01-B9DE61FE-000037)\nOUTBOX_SEND C01-B9DE61FE-000036 mqtt=1\nQUEUED A01 INVALID_GESTURE (A01-B9DE61FE-000038)\nOUTBOX_SEND A01-B9DE61FE-000037 mqtt=1\nQUEUED A01 INVALID_GESTURE (A01-B9DE61FE-000039)\nOUTBOX_SEND A01-B9DE61FE-000038 mqtt=1\nQUEUED A01 INVALID_GESTURE (A01-B9DE61FE-000040)\nOUTBOX_SEND A01-B9DE61FE-000039 mqtt=1\nQUEUED A01 SPAM_DETECTED (A01-B9DE61FE-000041)\nOUTBOX_SEND A01-B9DE61FE-000040 mqtt=1\nOUTBOX_SEND A01-B9DE61FE-000041 mqtt=1\n",
+  "state": {
+    "tickets": [
+      {
+        "ticket_id": "T20261009-0041",
+        "device_id": "A01",
+        "zone": "A",
+        "intent": "CONSULTATION",
+        "source": "BUTTON",
+        "state": "ESCALATED_L2",
+        "priority": 64.10875,
+        "queue_rank": 1,
+        "created_at": "2026-10-09T17:32:39.072Z",
+        "assigned_at": null,
+        "assigned_staff_id": null,
+        "staff_attempts": [
+          "NV02"
+        ],
+        "ack_at": null,
+        "arrived_at": null,
+        "resolved_at": null,
+        "cancelled_at": null,
+        "ack_latency_ms": null,
+        "response_time_ms": null,
+        "service_time_ms": null,
+        "escalation_level": 2,
+        "eta_seconds": 120,
+        "csat": null,
+        "origin_msg_id": "A01-B9DE61FE-000018",
+        "audit": [
+          {
+            "at": "2026-10-09T17:32:39.072Z",
+            "type": "TICKET_CREATED",
+            "device_id": "A01",
+            "intent": "CONSULTATION",
+            "ticket_id": "T20261009-0041"
+          },
+          {
+            "at": "2026-10-09T17:32:54.443Z",
+            "type": "ESCALATED_L1",
+            "ticket_id": "T20261009-0041"
+          },
+          {
+            "at": "2026-10-09T17:32:54.822Z",
+            "type": "ASSIGNED",
+            "staff_id": "NV02",
+            "ticket_id": "T20261009-0041"
+          },
+          {
+            "at": "2026-10-09T17:33:03.048Z",
+            "type": "ASSIGNMENT_TIMEOUT",
+            "staff_id": "NV02",
+            "ticket_id": "T20261009-0041"
+          },
+          {
+            "at": "2026-10-09T17:33:04.577Z",
+            "type": "ESCALATED_L2",
+            "ticket_id": "T20261009-0041"
+          }
+        ]
+      },
+      {
+        "ticket_id": "T20261009-0042",
+        "device_id": "B01",
+        "zone": "B",
+        "intent": "PAYMENT",
+        "source": "BUTTON",
+        "state": "RESOLVED",
+        "priority": 50.045,
+        "queue_rank": 1,
+        "created_at": "2026-10-09T17:32:44.987Z",
+        "assigned_at": "2026-10-09T17:32:45.527Z",
+        "assigned_staff_id": "NV02",
+        "staff_attempts": [
+          "NV02"
+        ],
+        "ack_at": "2026-10-09T17:32:45.536Z",
+        "arrived_at": "2026-10-09T17:32:54.692Z",
+        "resolved_at": "2026-10-09T17:32:54.821Z",
+        "cancelled_at": null,
+        "ack_latency_ms": 549,
+        "response_time_ms": 9705,
+        "service_time_ms": 129,
+        "escalation_level": 0,
+        "eta_seconds": 120,
+        "csat": "SATISFIED",
+        "origin_msg_id": "B01-B9DE61FE-000020",
+        "audit": [
+          {
+            "at": "2026-10-09T17:32:44.987Z",
+            "type": "TICKET_CREATED",
+            "device_id": "B01",
+            "intent": "PAYMENT",
+            "ticket_id": "T20261009-0042"
+          },
+          {
+            "at": "2026-10-09T17:32:45.528Z",
+            "type": "ASSIGNED",
+            "staff_id": "NV02",
+            "ticket_id": "T20261009-0042"
+          },
+          {
+            "at": "2026-10-09T17:32:45.536Z",
+            "type": "ACKNOWLEDGED",
+            "staff_id": "NV02",
+            "ticket_id": "T20261009-0042"
+          },
+          {
+            "at": "2026-10-09T17:32:54.692Z",
+            "type": "ARRIVED",
+            "response_time_ms": 9705,
+            "ticket_id": "T20261009-0042"
+          },
+          {
+            "at": "2026-10-09T17:32:54.821Z",
+            "type": "RESOLVED",
+            "service_time_ms": 129,
+            "aht_seconds": 84.0387,
+            "ticket_id": "T20261009-0042"
+          },
+          {
+            "at": "2026-10-09T17:33:03.745Z",
+            "type": "CSAT",
+            "rating": "SATISFIED",
+            "ticket_id": "T20261009-0042"
+          }
+        ]
+      },
+      {
+        "ticket_id": "T20261009-0043",
+        "device_id": "C01",
+        "zone": "C",
+        "intent": "CONSULTATION",
+        "source": "BUTTON",
+        "state": "CANCELLED",
+        "priority": 20.466583333333332,
+        "queue_rank": 2,
+        "created_at": "2026-10-09T17:33:09.079Z",
+        "assigned_at": null,
+        "assigned_staff_id": null,
+        "staff_attempts": [
+          "NV02"
+        ],
+        "ack_at": null,
+        "arrived_at": null,
+        "resolved_at": null,
+        "cancelled_at": "2026-10-09T17:33:14.680Z",
+        "ack_latency_ms": null,
+        "response_time_ms": null,
+        "service_time_ms": null,
+        "escalation_level": 0,
+        "eta_seconds": 240,
+        "csat": null,
+        "origin_msg_id": "C01-B9DE61FE-000031",
+        "audit": [
+          {
+            "at": "2026-10-09T17:33:09.079Z",
+            "type": "TICKET_CREATED",
+            "device_id": "C01",
+            "intent": "CONSULTATION",
+            "ticket_id": "T20261009-0043"
+          },
+          {
+            "at": "2026-10-09T17:33:09.079Z",
+            "type": "ASSIGNED",
+            "staff_id": "NV02",
+            "ticket_id": "T20261009-0043"
+          },
+          {
+            "at": "2026-10-09T17:33:14.680Z",
+            "type": "CANCELLED",
+            "ticket_id": "T20261009-0043"
+          }
+        ]
+      }
+    ],
+    "queue": [
+      {
+        "ticket_id": "T20261009-0041",
+        "device_id": "A01",
+        "zone": "A",
+        "intent": "CONSULTATION",
+        "source": "BUTTON",
+        "state": "ESCALATED_L2",
+        "priority": 64.10875,
+        "queue_rank": 1,
+        "created_at": "2026-10-09T17:32:39.072Z",
+        "assigned_at": null,
+        "assigned_staff_id": null,
+        "staff_attempts": [
+          "NV02"
+        ],
+        "ack_at": null,
+        "arrived_at": null,
+        "resolved_at": null,
+        "cancelled_at": null,
+        "ack_latency_ms": null,
+        "response_time_ms": null,
+        "service_time_ms": null,
+        "escalation_level": 2,
+        "eta_seconds": 120,
+        "csat": null,
+        "origin_msg_id": "A01-B9DE61FE-000018",
+        "audit": [
+          {
+            "at": "2026-10-09T17:32:39.072Z",
+            "type": "TICKET_CREATED",
+            "device_id": "A01",
+            "intent": "CONSULTATION",
+            "ticket_id": "T20261009-0041"
+          },
+          {
+            "at": "2026-10-09T17:32:54.443Z",
+            "type": "ESCALATED_L1",
+            "ticket_id": "T20261009-0041"
+          },
+          {
+            "at": "2026-10-09T17:32:54.822Z",
+            "type": "ASSIGNED",
+            "staff_id": "NV02",
+            "ticket_id": "T20261009-0041"
+          },
+          {
+            "at": "2026-10-09T17:33:03.048Z",
+            "type": "ASSIGNMENT_TIMEOUT",
+            "staff_id": "NV02",
+            "ticket_id": "T20261009-0041"
+          },
+          {
+            "at": "2026-10-09T17:33:04.577Z",
+            "type": "ESCALATED_L2",
+            "ticket_id": "T20261009-0041"
+          }
+        ]
+      }
+    ],
+    "staff": [
+      {
+        "staff_id": "NV01",
+        "name": "An",
+        "zones": [
+          "A",
+          "C"
+        ],
+        "status": "BUSY",
+        "tickets_assigned_this_shift": 0,
+        "current_ticket": null,
+        "last_assigned_at": null,
+        "active_tickets": 0,
+        "score_preview": {
+          "A": 30,
+          "B": 0,
+          "C": 30
+        }
+      },
+      {
+        "staff_id": "NV02",
+        "name": "Bình",
+        "zones": [
+          "B"
+        ],
+        "status": "AVAILABLE",
+        "tickets_assigned_this_shift": 3,
+        "current_ticket": null,
+        "last_assigned_at": "2026-10-09T17:33:09.079Z",
+        "active_tickets": 0,
+        "score_preview": {
+          "A": 70,
+          "B": 100,
+          "C": 70
+        }
+      },
+      {
+        "staff_id": "NV03",
+        "name": "Chi",
+        "zones": [
+          "A",
+          "B",
+          "C"
+        ],
+        "status": "BUSY",
+        "tickets_assigned_this_shift": 0,
+        "current_ticket": null,
+        "last_assigned_at": null,
+        "active_tickets": 0,
+        "score_preview": {
+          "A": 30,
+          "B": 30,
+          "C": 30
+        }
+      }
+    ],
+    "metrics": {
+      "waiting_tickets": 1,
+      "active_tickets": 1,
+      "escalated_tickets": 1,
+      "avg_response_seconds": 9.705,
+      "p90_response_seconds": 9.705,
+      "sla_violation_percent": 0,
+      "csat_percent": 100,
+      "available_staff": 1,
+      "on_duty_staff": 3,
+      "overload": false,
+      "aht_by_zone": {
+        "A": 120,
+        "B": 84.0387,
+        "C": 120
+      },
+      "response_by_zone": {
+        "A": {
+          "avg_response_seconds": null,
+          "p90_response_seconds": null,
+          "completed": 0,
+          "aht_seconds": 120,
+          "avg_service_seconds": null
+        },
+        "B": {
+          "avg_response_seconds": 9.705,
+          "p90_response_seconds": 9.705,
+          "completed": 1,
+          "aht_seconds": 84.0387,
+          "avg_service_seconds": 0.129
+        },
+        "C": {
+          "avg_response_seconds": null,
+          "p90_response_seconds": null,
+          "completed": 0,
+          "aht_seconds": 120,
+          "avg_service_seconds": null
+        }
+      },
+      "requests_by_intent": {
+        "CONSULTATION": 2,
+        "PAYMENT": 1
+      },
+      "requests_by_zone": {
+        "A": 1,
+        "B": 1,
+        "C": 1
+      },
+      "requests_by_hour": {
+        "0": 3,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0,
+        "10": 0,
+        "11": 0,
+        "12": 0,
+        "13": 0,
+        "14": 0,
+        "15": 0,
+        "16": 0,
+        "17": 0,
+        "18": 0,
+        "19": 0,
+        "20": 0,
+        "21": 0,
+        "22": 0,
+        "23": 0
+      },
+      "sample_count": 1,
+      "resolved_count": 1,
+      "as_of": "2026-10-09T17:33:28.377Z",
+      "response_sla_seconds": 120
+    },
+    "forecast": {
+      "at": "2026-10-09T17:48:28.361Z",
+      "now": "2026-10-09T17:33:28.361Z",
+      "synthetic": true,
+      "horizon_minutes": 15,
+      "target_utilization": 0.8,
+      "zones": [
+        {
+          "zone": "A",
+          "lambda_per_minute": 0,
+          "aht_seconds": 120,
+          "required_staff": 0,
+          "staff_on_duty": 2,
+          "additional_staff": 0,
+          "recommendation": "Khu A: nhân sự hiện tại đáp ứng dự báo."
+        },
+        {
+          "zone": "B",
+          "lambda_per_minute": 0,
+          "aht_seconds": 84.0387,
+          "required_staff": 0,
+          "staff_on_duty": 1,
+          "additional_staff": 0,
+          "recommendation": "Khu B: nhân sự hiện tại đáp ứng dự báo."
+        },
+        {
+          "zone": "C",
+          "lambda_per_minute": 0,
+          "aht_seconds": 120,
+          "required_staff": 0,
+          "staff_on_duty": 0,
+          "additional_staff": 0,
+          "recommendation": "Khu C: nhân sự hiện tại đáp ứng dự báo."
+        }
+      ],
+      "recommendations": [],
+      "history_rows": 10974,
+      "note": "Dữ liệu giả lập để chứng minh thuật toán, không phải dữ liệu thực tế."
+    },
+    "devices": {
+      "A01": {
+        "device_id": "A01",
+        "ticket_id": "T20261009-0041",
+        "state": "SPAM_LOCK",
+        "rank": 1,
+        "eta_seconds": 120,
+        "display": "SPAM_LOCK",
+        "csat_remaining_seconds": 0,
+        "lock_remaining_seconds": 30,
+        "online": true
+      },
+      "B01": {
+        "device_id": "B01",
+        "ticket_id": null,
+        "state": "READY",
+        "rank": 0,
+        "eta_seconds": 0,
+        "display": "READY",
+        "csat_remaining_seconds": 0,
+        "lock_remaining_seconds": 0,
+        "online": true
+      },
+      "C01": {
+        "device_id": "C01",
+        "ticket_id": null,
+        "state": "READY",
+        "rank": 0,
+        "eta_seconds": 0,
+        "display": "READY",
+        "csat_remaining_seconds": 0,
+        "lock_remaining_seconds": 0,
+        "online": true
+      }
+    },
+    "clock": {
+      "datetime": "2026-10-09T17:33:28.424Z",
+      "speed": 1,
+      "running": true
+    },
+    "config": {
+      "demo_mode": true,
+      "thresholds": {
+        "assign": 8,
+        "l1": 15,
+        "l2": 25
+      },
+      "csat_window_seconds": 15,
+      "aht_alpha": 0.3
+    },
+    "alerts": [
+      {
+        "at": "2026-10-09T17:33:28.215Z",
+        "type": "SPAM_DETECTED",
+        "message": "Temporary device lock",
+        "device_id": "A01"
+      },
+      {
+        "at": "2026-10-09T17:33:04.576Z",
+        "type": "ESCALATED_L2",
+        "message": "Manager intervention required",
+        "ticket_id": "T20261009-0041",
+        "device_id": "A01"
+      },
+      {
+        "at": "2026-10-09T17:32:54.442Z",
+        "type": "ESCALATED_L1",
+        "message": "No timely staff acceptance",
+        "ticket_id": "T20261009-0041",
+        "device_id": "A01"
+      }
+    ],
+    "mqtt": {
+      "connected": true
+    },
+    "telegram": {
+      "enabled": false,
+      "last_error": null
+    }
+  },
+  "delivery_source_sha256": "00e7cc822fa6caffb025b8828c4cc160a74ac5b8abd090bfb05002afe3b27bea",
+  "tested_source_sha256": "9a5e9ea9f08e2f86940a4fd86bc5301f5ac5854fd2784dfa8492381bc0fa128a",
+  "test_overlay": "Only ENABLE_SERIAL_DIAGNOSTICS=true for actual O/R fault injection; delivery default=false, all business thresholds/logic unchanged",
+  "thresholds": {
+    "debounce_ms": 50,
+    "short_below_ms": 800,
+    "long_at_least_ms": 1500,
+    "double_release_interval_ms": 400,
+    "middleware_demo_ack_seconds": 8,
+    "middleware_demo_l1_seconds": 15,
+    "middleware_demo_l2_seconds": 25
+  }
+}

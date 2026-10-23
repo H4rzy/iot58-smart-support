@@ -1,0 +1,227 @@
+{
+  "version": 1,
+  "author": "HUIT Smart Support Team - Topic 58 V2",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "board-esp32-devkit-c-v4",
+      "id": "esp",
+      "top": 0,
+      "left": -180,
+      "attrs": {}
+    },
+    {
+      "type": "board-ssd1306",
+      "id": "oled",
+      "top": -145,
+      "left": 50,
+      "attrs": {
+        "i2cAddress": "0x3c"
+      }
+    },
+    {
+      "type": "wokwi-buzzer",
+      "id": "buzzer",
+      "top": 235,
+      "left": 250,
+      "attrs": {
+        "volume": "0.15"
+      }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "buttonA01",
+      "top": 0,
+      "left": 90,
+      "attrs": {
+        "color": "green",
+        "label": "A01 / iPhone",
+        "key": "A"
+      }
+    },
+    {
+      "type": "wokwi-neopixel",
+      "id": "ledA01",
+      "top": 10,
+      "left": 235,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "buttonB01",
+      "top": 95,
+      "left": 90,
+      "attrs": {
+        "color": "blue",
+        "label": "B01 / Android",
+        "key": "B"
+      }
+    },
+    {
+      "type": "wokwi-neopixel",
+      "id": "ledB01",
+      "top": 105,
+      "left": 235,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "buttonC01",
+      "top": 190,
+      "left": 90,
+      "attrs": {
+        "color": "orange",
+        "label": "C01 / Accessories",
+        "key": "C"
+      }
+    },
+    {
+      "type": "wokwi-neopixel",
+      "id": "ledC01",
+      "top": 200,
+      "left": 235,
+      "attrs": {}
+    }
+  ],
+  "connections": [
+    [
+      "esp:21",
+      "oled:SDA",
+      "green",
+      []
+    ],
+    [
+      "esp:22",
+      "oled:SCL",
+      "blue",
+      []
+    ],
+    [
+      "esp:3V3",
+      "oled:VCC",
+      "red",
+      []
+    ],
+    [
+      "esp:GND.1",
+      "oled:GND",
+      "black",
+      []
+    ],
+    [
+      "esp:13",
+      "buzzer:1",
+      "purple",
+      []
+    ],
+    [
+      "buzzer:2",
+      "esp:GND.2",
+      "black",
+      []
+    ],
+    [
+      "esp:18",
+      "buttonA01:1.l",
+      "green",
+      []
+    ],
+    [
+      "buttonA01:2.l",
+      "esp:GND.1",
+      "black",
+      []
+    ],
+    [
+      "esp:25",
+      "ledA01:DIN",
+      "green",
+      []
+    ],
+    [
+      "esp:5V",
+      "ledA01:VDD",
+      "red",
+      []
+    ],
+    [
+      "ledA01:VSS",
+      "esp:GND.2",
+      "black",
+      []
+    ],
+    [
+      "esp:19",
+      "buttonB01:1.l",
+      "blue",
+      []
+    ],
+    [
+      "buttonB01:2.l",
+      "esp:GND.1",
+      "black",
+      []
+    ],
+    [
+      "esp:5V",
+      "ledB01:VDD",
+      "red",
+      []
+    ],
+    [
+      "ledB01:VSS",
+      "esp:GND.2",
+      "black",
+      []
+    ],
+    [
+      "esp:23",
+      "buttonC01:1.l",
+      "orange",
+      []
+    ],
+    [
+      "buttonC01:2.l",
+      "esp:GND.1",
+      "black",
+      []
+    ],
+    [
+      "esp:5V",
+      "ledC01:VDD",
+      "red",
+      []
+    ],
+    [
+      "ledC01:VSS",
+      "esp:GND.2",
+      "black",
+      []
+    ],
+    [
+      "esp:TX",
+      "$serialMonitor:RX",
+      "",
+      []
+    ],
+    [
+      "esp:RX",
+      "$serialMonitor:TX",
+      "",
+      []
+    ],
+    [
+      "ledA01:DOUT",
+      "ledB01:DIN",
+      "green",
+      []
+    ],
+    [
+      "ledB01:DOUT",
+      "ledC01:DIN",
+      "green",
+      []
+    ]
+  ],
+  "dependencies": {}
+}

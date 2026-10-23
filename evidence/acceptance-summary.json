@@ -1,0 +1,363 @@
+{
+  "at": "2026-10-23T18:48:26.650987+00:00",
+  "source": "Lead cross-check of actual test artifacts, source hashes, KPI arithmetic and live APIs; Telegram live not tested",
+  "acceptance": [
+    {
+      "id": "AC01",
+      "condition": "Wokwi có 3 customer-point inputs",
+      "status": "PASS"
+    },
+    {
+      "id": "AC02",
+      "condition": "Visible actuator",
+      "status": "PASS"
+    },
+    {
+      "id": "AC03",
+      "condition": "Short A tạo CONSULTATION",
+      "status": "PASS"
+    },
+    {
+      "id": "AC04",
+      "condition": "Long B tạo PAYMENT",
+      "status": "PASS"
+    },
+    {
+      "id": "AC05",
+      "condition": "B outrank A",
+      "status": "PASS"
+    },
+    {
+      "id": "AC06",
+      "condition": "Global queue ≥2 ticket",
+      "status": "PASS"
+    },
+    {
+      "id": "AC07",
+      "condition": "Duplicate ignored",
+      "status": "PASS"
+    },
+    {
+      "id": "AC08",
+      "condition": "Smart dispatch đúng staff",
+      "status": "PASS"
+    },
+    {
+      "id": "AC09",
+      "condition": "No ACK reassignment",
+      "status": "PASS"
+    },
+    {
+      "id": "AC10",
+      "condition": "Escalation L1",
+      "status": "PASS"
+    },
+    {
+      "id": "AC11",
+      "condition": "Escalation L2",
+      "status": "PASS"
+    },
+    {
+      "id": "AC12",
+      "condition": "Dashboard ACK",
+      "status": "PASS"
+    },
+    {
+      "id": "AC13",
+      "condition": "ACK MQTT downlink",
+      "status": "PASS"
+    },
+    {
+      "id": "AC14",
+      "condition": "LED BLUE",
+      "status": "PASS"
+    },
+    {
+      "id": "AC15",
+      "condition": "Physical press sau ACK → ARRIVED",
+      "status": "PASS"
+    },
+    {
+      "id": "AC16",
+      "condition": "Response created→arrived",
+      "status": "PASS"
+    },
+    {
+      "id": "AC17",
+      "condition": "DONE chỉ ARRIVED",
+      "status": "PASS"
+    },
+    {
+      "id": "AC18",
+      "condition": "AHT EWMA update",
+      "status": "PASS"
+    },
+    {
+      "id": "AC19",
+      "condition": "ETA update",
+      "status": "PASS"
+    },
+    {
+      "id": "AC20",
+      "condition": "CSAT",
+      "status": "PASS"
+    },
+    {
+      "id": "AC21",
+      "condition": "Double cancel",
+      "status": "PASS"
+    },
+    {
+      "id": "AC22",
+      "condition": "Spam lock",
+      "status": "PASS"
+    },
+    {
+      "id": "AC23",
+      "condition": "Offline/reconnect",
+      "status": "PASS"
+    },
+    {
+      "id": "AC24",
+      "condition": "Buffer replay",
+      "status": "PASS"
+    },
+    {
+      "id": "AC25",
+      "condition": "Overload alert",
+      "status": "PASS"
+    },
+    {
+      "id": "AC26",
+      "condition": "Synthetic four-week history",
+      "status": "PASS"
+    },
+    {
+      "id": "AC27",
+      "condition": "Forecast đọc dataset",
+      "status": "PASS"
+    },
+    {
+      "id": "AC28",
+      "condition": "Staffing recommendation",
+      "status": "PASS"
+    },
+    {
+      "id": "AC29",
+      "condition": "Dashboard metrics",
+      "status": "PASS"
+    },
+    {
+      "id": "AC30",
+      "condition": "Telegram graceful disable",
+      "status": "PASS"
+    },
+    {
+      "id": "AC31",
+      "condition": "Telegram configured live",
+      "status": "MANUAL"
+    },
+    {
+      "id": "AC32",
+      "condition": "REST",
+      "status": "PASS"
+    },
+    {
+      "id": "AC33",
+      "condition": "Bốn tầng documented",
+      "status": "PASS"
+    },
+    {
+      "id": "AC34",
+      "condition": "Uplink demo-able",
+      "status": "PASS"
+    },
+    {
+      "id": "AC35",
+      "condition": "Downlink demo-able",
+      "status": "PASS"
+    },
+    {
+      "id": "AC36",
+      "condition": "Security documented",
+      "status": "PASS"
+    },
+    {
+      "id": "AC37",
+      "condition": "Không có committed secrets",
+      "status": "PASS"
+    },
+    {
+      "id": "AC38",
+      "condition": "Tests pass",
+      "status": "PASS"
+    },
+    {
+      "id": "AC39",
+      "condition": "Reset",
+      "status": "PASS"
+    },
+    {
+      "id": "AC40",
+      "condition": "Rubric traceability",
+      "status": "PASS"
+    },
+    {
+      "id": "AC41",
+      "condition": "Vision: payload sai bị từ chối (schema, zone, topic lệch, camera_id, persons âm/không nguyên/>50, quá lớn, JSON hỏng)",
+      "status": "PASS"
+    },
+    {
+      "id": "AC42",
+      "condition": "Vision fail-open: không reading hoặc reading cũ quá `VISION_STALE_SECONDS` thì presence/arrival `null`, abandon `false`, ticket không bị hủy",
+      "status": "PASS"
+    },
+    {
+      "id": "AC43",
+      "condition": "Vision: camera im thì thời gian im lặng không tính là khu trống hoặc có người liên tục",
+      "status": "PASS"
+    },
+    {
+      "id": "AC44",
+      "condition": "Vision bỏ đi: khu trống quá ngưỡng demo 10 s thì ticket CANCELLED, `cancel_reason=ABANDONED_VISION`, alert `TICKET_ABANDONED`, device về READY, staff được release",
+      "status": "PASS"
+    },
+    {
+      "id": "AC45",
+      "condition": "Vision: khách quay lại trước ngưỡng thì ticket không bị hủy",
+      "status": "PASS"
+    },
+    {
+      "id": "AC46",
+      "condition": "Vision nghi ngờ: REQUEST khi khu trống thì `presence_verified=false` và alert `UNVERIFIED_REQUEST`; có người thì `true`; không camera thì `null`",
+      "status": "PASS"
+    },
+    {
+      "id": "AC47",
+      "condition": "Vision xác minh: STAFF_ARRIVED với 2 người thì `true`, 1 người thì `false` kèm `ARRIVAL_UNVERIFIED`, camera stale thì `null`; ARRIVED thành công cả ba",
+      "status": "PASS"
+    },
+    {
+      "id": "AC48",
+      "condition": "Vision chủ động: khu có người ≥ dwell, device không có ticket active và không ở CSAT thì alert `PROACTIVE_ASSIST`",
+      "status": "PASS"
+    },
+    {
+      "id": "AC49",
+      "condition": "`VISION_ENABLED=false`: reading bị bỏ qua (`ignored:true`), không parse hay lưu, mọi luật tắt",
+      "status": "PASS"
+    },
+    {
+      "id": "AC50",
+      "condition": "Ngưỡng vision: production 60 s / 180 s, demo mặc định 10 s / 20 s theo `DEMO_MODE`",
+      "status": "PASS"
+    },
+    {
+      "id": "AC51",
+      "condition": "Footfall chỉ tăng khi số người tăng; `empty_since` và `occupied_since` chuyển đúng",
+      "status": "PASS"
+    },
+    {
+      "id": "AC52",
+      "condition": "`reset()` giữ state vision; state cũ không có `vision` vẫn nạp được",
+      "status": "PASS"
+    },
+    {
+      "id": "AC53",
+      "condition": "Ticket hủy bằng camera không làm sai AHT, response time hay SLA",
+      "status": "PASS"
+    },
+    {
+      "id": "AC54",
+      "condition": "Snapshot và retained `system/vision`: khu online có `persons`, khu offline là `null` không bao giờ là 0; `display` dưới 768 byte và không có vision",
+      "status": "PASS"
+    },
+    {
+      "id": "AC55",
+      "condition": "Kịch bản MQTT `vision` 6 bước (ticket verified, bỏ đi qua MQTT, arrival, stale, payload sai)",
+      "status": "PASS"
+    },
+    {
+      "id": "AC56",
+      "condition": "Dashboard: thẻ Camera A/B/C, badge xác minh trên hàng đợi, alert vision, ghi chú riêng tư",
+      "status": "NOT RUN"
+    },
+    {
+      "id": "AC57",
+      "condition": "`publisher.py --dry-run` và `simulate.py` chạy được và đúng contract mục 2",
+      "status": "NOT RUN"
+    },
+    {
+      "id": "AC58",
+      "condition": "Webcam laptop thật đếm người đúng theo khu A/B/C",
+      "status": "MANUAL"
+    },
+    {
+      "id": "AC59",
+      "condition": "Camera ESP32-S3 thật đưa số người vào hệ thống",
+      "status": "MANUAL"
+    },
+    {
+      "id": "AC60",
+      "condition": "Không có ảnh nào được ghi ra đĩa hoặc gửi đi ở bất kỳ phần nào",
+      "status": "STATIC"
+    },
+    {
+      "id": "AC61",
+      "condition": "Hồi quy: `VISION_ENABLED=false`, vòng đời ticket cũ (REQUEST, ACK, ARRIVED, DONE, CSAT) cho kết quả y như trước",
+      "status": "PASS"
+    }
+  ],
+  "counts": {
+    "MANUAL": 3,
+    "NOT RUN": 2,
+    "PASS": 55,
+    "STATIC": 1
+  },
+  "unit_tests": 49,
+  "mqtt_scenarios": 5,
+  "wokwi_business_e2e": "PASS actual browser",
+  "wokwi_offline_reboot": "PASS actual browser; diagnostics-only overlay",
+  "delivery_source_sha256": "00e7cc822fa6caffb025b8828c4cc160a74ac5b8abd090bfb05002afe3b27bea",
+  "api": {
+    "health": {
+      "status": 200,
+      "body": {
+        "ok": true,
+        "project": "Máy lấy số / gọi nhân viên hỗ trợ thông minh",
+        "version": "2.0.0",
+        "mqtt": {
+          "connected": true
+        },
+        "telegram": {
+          "enabled": false
+        },
+        "history_records": 10974,
+        "uptime_seconds": 451
+      }
+    },
+    "flow-health": {
+      "status": 200
+    },
+    "state": {
+      "status": 200,
+      "ready_devices": [
+        "A01",
+        "B01",
+        "C01"
+      ]
+    },
+    "queue": {
+      "status": 200
+    },
+    "staff": {
+      "status": 200
+    },
+    "metrics": {
+      "status": 200
+    },
+    "forecast": {
+      "status": 200
+    }
+  }
+}

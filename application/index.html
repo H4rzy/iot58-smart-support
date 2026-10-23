@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>Máy lấy số / gọi nhân viên hỗ trợ thông minh · HUIT</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Đến nội dung chính</a>
+  <aside class="sidebar">
+    <a class="brand" href="#overview" aria-label="Smart Support, tổng quan"><span class="brand-mark">S<span>+</span></span><span>SMART<br><strong>SUPPORT</strong></span></a>
+    <div class="store-label">RETAIL OPERATIONS <span>CỬA HÀNG S1 · HUIT</span></div>
+    <nav aria-label="Điều hướng">
+      <a class="nav-link active" href="#overview"><span aria-hidden="true">◫</span> Tổng quan <span class="nav-number">01</span></a>
+      <a class="nav-link" href="#queue-section"><span aria-hidden="true">≡</span> Hàng đợi <span class="nav-number">02</span></a>
+      <a class="nav-link" href="#staff-section"><span aria-hidden="true">♧</span> Nhân sự <span class="nav-number">03</span></a>
+      <a class="nav-link" href="#analytics-section"><span aria-hidden="true">↗</span> Phân tích <span class="nav-number">04</span></a>
+      <a class="nav-link" href="#demo-section"><span aria-hidden="true">⊙</span> Phòng demo <span class="nav-number">05</span></a>
+    </nav>
+    <div class="sidebar-note"><span class="eyebrow">THIẾT BỊ ĐƠN GIẢN.</span><p>Quyết định thông minh<br>từ middleware.</p><div class="layer-line">BUTTON → MQTT → NODE-RED → APP</div></div>
+    <div class="sidebar-footer"><b>ĐỀ TÀI 58</b><span>Internet of Things / HUIT</span><a href="/red" target="_blank" rel="noopener">Mở Node-RED ↗</a></div>
+  </aside>
+  <main id="main">
+    <header class="topbar"><div><span class="eyebrow">HUIT / INTERNET OF THINGS</span><span class="project-name">Máy lấy số / gọi nhân viên hỗ trợ thông minh</span></div><div class="connection"><span id="connection-dot" class="status-dot"></span><span id="connection-label">Đang kết nối API…</span><time id="last-update">—</time></div></header>
+    <section id="overview" class="overview section-anchor">
+      <div class="page-title"><div><div class="eyebrow">FLOOR CONTROL / S1</div><h1>Mọi yêu cầu.<br><span>Đúng người, đúng lúc.</span></h1><p>Hàng đợi hỗ trợ toàn cửa hàng · A iPhone / B Android / C Phụ kiện</p></div><div class="mode-summary"><span id="mode-badge" class="badge badge-neutral">ĐANG TẢI</span><span id="operating-status">Chờ dữ liệu middleware</span><span id="threshold-label">SLA dùng thời gian thực</span></div></div>
+      <div id="connection-warning" class="notice notice-error" role="status" hidden>Chưa nhận được dữ liệu. Kiểm tra Node-RED và /api/iot58/health.</div>
+      <div id="overload-banner" class="notice notice-warning" role="status" hidden></div>
+      <div class="kpi-grid" id="kpi-grid" aria-label="Chỉ số vận hành"></div>
+      <div class="section-heading"><div><span class="eyebrow">LIVE CUSTOMER POINTS</span><h2>Ba điểm gọi. Một hàng đợi.</h2></div><span id="mqtt-status" class="badge badge-neutral">MQTT —</span></div>
+      <div class="device-grid" id="devices"></div>
+      <div class="section-heading"><div><span class="eyebrow">CAMERA PRESENCE</span><h2>Camera xác nhận có người</h2></div><span class="subtle">Đếm số người theo khu A / B / C</span></div>
+      <div id="vision-disabled" class="notice notice-warning" role="status" hidden>Camera đang tắt (VISION_ENABLED=false). Hệ thống chỉ chạy theo nút bấm.</div>
+      <div class="camera-grid" id="camera-grid" aria-label="Camera theo khu"></div>
+      <p class="privacy-note"><span aria-hidden="true">●</span> Camera chỉ gửi số người, không lưu hình</p>
+    </section>
+    <section id="queue-section" class="panel section-anchor">
+      <div class="panel-heading"><div><span class="eyebrow">GLOBAL QUEUE</span><h2>Yêu cầu đang phục vụ <span id="queue-count" class="count-label">0</span></h2></div><div class="legend"><span><i class="legend-dot waiting"></i> Chờ</span><span><i class="legend-dot accepted"></i> Đã nhận</span><span><i class="legend-dot arrived"></i> Đã đến</span></div></div>
+      <div class="table-scroll"><table class="queue-table"><caption class="sr-only">Hàng đợi với ưu tiên động; ACK trên ứng dụng, ARRIVED tại nút vật lý</caption><thead><tr><th>Hạng</th><th>Ticket / Khu</th><th>Ý định</th><th>Ưu tiên</th><th>Đã chờ</th><th>ETA</th><th>Trạng thái</th><th>Nhân viên</th><th>Thao tác</th></tr></thead><tbody id="queue-body"><tr><td colspan="9" class="empty-state">Đang tải hàng đợi…</td></tr></tbody></table></div>
+      <div class="panel-footnote"><span class="mini-label">LUỒNG CHUẨN</span> ACK trên Dashboard → LED xanh dương → nhân viên đến và nhấn nút tại quầy → ARRIVED → DONE trên Dashboard.</div>
+    </section>
+    <section id="staff-section" class="section-anchor">
+      <div class="section-heading"><div><span class="eyebrow">SMART DISPATCH</span><h2>Đội ngũ trên sàn</h2></div><span class="subtle">Điểm = 100 × sẵn sàng + 30 × đúng khu − 10 × lượt nhận</span></div>
+      <div id="staff-grid" class="staff-grid"></div>
+    </section>
+    <section id="analytics-section" class="section-anchor">
+      <div class="section-heading"><div><span class="eyebrow">DATA-DRIVEN DECISIONS</span><h2>Hiểu vận hành. Chủ động bố trí.</h2></div><span class="badge badge-neutral">EWMA α = <span id="alpha-value">0.3</span></span></div>
+      <div class="analytics-grid">
+        <article class="panel"><div class="panel-heading"><div><span class="eyebrow">RESPONSE & SERVICE</span><h3>Hiệu suất theo khu</h3></div></div><div class="table-scroll"><table><thead><tr><th>Khu</th><th>Phản hồi TB</th><th>P90</th><th>Phục vụ TB</th><th>AHT</th><th>Yêu cầu</th></tr></thead><tbody id="zone-stats"></tbody></table></div><p class="panel-footnote">Phản hồi thực = ARRIVED − tạo ticket. AHT chỉ học từ ticket RESOLVED. P90 dùng nearest-rank.</p></article>
+        <article class="panel"><div class="panel-heading"><div><span class="eyebrow">REQUEST MIX</span><h3>Nhu cầu hỗ trợ</h3></div></div><div id="intent-chart" class="bar-chart"></div><div class="analytics-note"><span>CONSULTATION</span> Tư vấn · trọng số 20<br><span>PAYMENT</span> Thanh toán / khẩn · trọng số 50</div><p class="panel-footnote">Aging +5 mỗi phút giúp yêu cầu tư vấn không bị bỏ quên.</p></article>
+      </div>
+      <article class="panel forecast-panel"><div class="panel-heading"><div><span class="eyebrow">DEMAND FORECAST / 4 TUẦN</span><h3>Nhân sự cho giờ tiếp theo</h3></div><span id="forecast-at" class="subtle">—</span></div><div class="synthetic-notice">Dữ liệu lịch sử giả lập, seed 58, để chứng minh thuật toán; không phải dữ liệu thực tế.</div><div id="forecast-grid" class="forecast-grid"></div><div id="recommendations" class="recommendations"></div><p class="panel-footnote">λ từ cùng thứ + giờ của 4 tuần trước. Nhân sự cần = ceil(λ × AHT / 0.8), λ tính ticket/phút và AHT tính phút.</p></article>
+      <article class="panel hourly-panel"><div class="panel-heading"><div><span class="eyebrow">SESSION DEMAND / UTC+7</span><h3>Yêu cầu theo giờ</h3></div><span class="subtle">Dữ liệu ticket trong phiên hiện tại</span></div><div id="hour-chart" class="hour-chart" aria-label="Số yêu cầu theo giờ cửa hàng"></div></article>
+    </section>
+    <section id="demo-section" class="section-anchor">
+      <div class="section-heading"><div><span class="eyebrow">REPEATABLE DEMO</span><h2>Phòng điều khiển demo</h2></div><span class="subtle">Clock ảo chỉ dùng forecast · SLA chạy thời gian thực</span></div>
+      <div class="demo-grid"><article class="panel clock-panel"><div class="panel-heading"><h3>Đồng hồ dự báo</h3><span id="clock-state" class="badge badge-neutral">—</span></div><div class="virtual-time" id="virtual-time">—</div><form id="clock-form"><label for="clock-datetime">Mốc thời gian ảo</label><input type="datetime-local" id="clock-datetime" required><label for="clock-speed">Tốc độ</label><select id="clock-speed"><option value="1">1× · thời gian thực</option><option value="10">10×</option><option value="60">60× · 1 giây = 1 phút</option></select><button class="button secondary" type="submit">Đặt mốc & tốc độ</button></form><div class="button-row"><button type="button" class="button" data-clock="start">Chạy clock</button><button type="button" class="button secondary" data-clock="pause">Tạm dừng</button><button type="button" class="button ghost" data-clock="reset">Reset clock</button></div></article><article class="panel reset-panel"><div class="panel-heading"><h3>Kịch bản & trạng thái</h3><span id="telegram-status" class="badge badge-neutral">Telegram —</span></div><div class="mode-toggle"><label for="demo-mode">Rút ngắn ngưỡng timeout</label><input id="demo-mode" type="checkbox" role="switch"><span>DEMO / NORMAL</span></div><p id="timeout-description">Đang tải ngưỡng timeout từ middleware.</p><ol class="demo-steps"><li>Đặt nhân viên BUSY. Nhấn ngắn A, giữ B ≥1.5s.</li><li>B PAYMENT đứng trước A CONSULTATION.</li><li>Cho Bình AVAILABLE; ACK B trên Dashboard.</li><li>Nhấn nút B tại Wokwi để xác nhận ARRIVED.</li><li>DONE; nhấn ngắn B để đánh giá hài lòng.</li></ol><div class="reset-actions"><label class="check-label"><input type="checkbox" id="reset-metrics" checked> Reset KPI phiên demo</label><button type="button" id="reset-demo" class="button danger">Reset demo ↺</button></div><p class="panel-footnote">Reset xóa hàng đợi, assignment và spam lock; phát READY về ba quầy. Dữ liệu lịch sử giả lập được giữ.</p></article></div>
+      <article class="panel alerts-panel"><div class="panel-heading"><div><span class="eyebrow">SYSTEM EVENTS</span><h3>Cảnh báo gần đây</h3></div><span class="subtle">Không hiển thị token hoặc thông tin cá nhân</span></div><ul id="alerts-list" class="alerts-list"><li class="empty-state">Chưa có dữ liệu cảnh báo.</li></ul></article>
+      <details class="access-panel"><summary>Quyền điều khiển khi quản trị viên bật bảo vệ API</summary><form id="access-form"><label for="access-token">Token thao tác</label><input type="password" id="access-token" autocomplete="off" placeholder="Để trống nếu không được yêu cầu"><button type="submit" class="button secondary">Áp dụng cho phiên này</button></form><p>Chỉ giữ trong bộ nhớ trang, không ghi vào URL hoặc lưu trữ trình duyệt. Tải lại trang sẽ xóa token.</p></details>
+    </section>
+    <footer class="page-footer"><span>HUIT · Đề tài 58 · Máy lấy số / gọi nhân viên hỗ trợ thông minh</span><span>Context-aware adaptive decision logic</span></footer>
+  </main>
+  <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+  <dialog id="reset-dialog"><form method="dialog"><span class="eyebrow">BẮT ĐẦU LẠI PHIÊN DEMO</span><h2>Reset toàn bộ yêu cầu?</h2><p>Ticket đang hoạt động và assignment sẽ được xóa. Ba thiết bị nhận trạng thái READY.</p><div class="button-row"><button value="cancel" class="button secondary">Giữ phiên hiện tại</button><button value="confirm" class="button danger">Reset demo</button></div></form></dialog>
+</body>
+</html>

@@ -1,0 +1,27 @@
+services:
+  mosquitto:
+    image: eclipse-mosquitto:2
+    ports:
+      - "1883:1883"
+    volumes:
+      - ./tools/mosquitto.conf:/mosquitto/config/mosquitto.conf:ro
+      - mqtt-data:/mosquitto/data
+  node-red:
+    image: node:24-alpine
+    working_dir: /project/node-red
+    command: sh -c "npm ci --no-audit --no-fund && npm start"
+    ports:
+      - "1880:1880"
+    environment:
+      MQTT_HOST: mosquitto
+      MQTT_PORT: "1883"
+      DEMO_MODE: "true"
+      UI_HOST: "0.0.0.0"
+    volumes:
+      - ./:/project
+      - node-modules:/project/node-red/node_modules
+    depends_on:
+      - mosquitto
+volumes:
+  mqtt-data:
+  node-modules:

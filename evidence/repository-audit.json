@@ -1,0 +1,64 @@
+{
+  "at": "2026-10-23T18:47:07.617838+00:00",
+  "source": "Actual static repository audit; runtime acceptance is separate",
+  "checks": [
+    {
+      "check": "Required delivery files",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "check": "12 Node-RED tabs and valid graph edges",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "check": "3 physical buttons and 3 NeoPixels",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Firmware/diagram buttons and independently indexed pixel chain",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "No blocking delay or physical ACK/DONE pins in active firmware",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Firmware/default middleware MQTT namespace agrees",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Historical records cover three zones and four weeks",
+      "passed": true,
+      "detail": {
+        "rows": 10974
+      }
+    },
+    {
+      "check": "Secret template has empty Telegram token",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Local Markdown links resolve",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "check": "No Telegram token pattern in deliverable text",
+      "passed": true,
+      "detail": []
+    }
+  ],
+  "failures": [],
+  "manual": [
+    "Telegram live requires token",
+    "Hardware bonus optional",
+    "See TEST_RESULTS for Wokwi runtime evidence"
+  ]
+}

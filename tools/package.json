@@ -1,0 +1,19 @@
+{
+  "name": "iot58-verification-tools",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Local MQTT scenario and browser verification tools",
+  "scripts": {
+    "broker": "node local_broker.js",
+    "scenario": "node mqtt_scenario_test.js",
+    "browser": "node browser_smoke_test.js"
+  },
+  "dependencies": {
+    "aedes": "^0.51.3",
+    "mqtt": "^5.14.1"
+  },
+  "devDependencies": {
+    "playwright": "^1.56.0",
+    "prettier": "^3.6.2"
+  }
+}

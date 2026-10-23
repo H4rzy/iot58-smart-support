@@ -1,0 +1,47 @@
+{
+  "$schema": "https://repomix.com/schemas/latest/schema.json",
+  "input": {
+    "maxFileSize": 50000000
+  },
+  "output": {
+    "filePath": "repomix-output.xml",
+    "style": "xml",
+    "parsableStyle": true,
+    "compress": false,
+    "headerText": "HUIT Internet of Things - Đề tài 58: Máy lấy số / gọi nhân viên hỗ trợ thông minh. Full repository text export, including source, documentation, tests, evidence logs, synthetic history and legacy text. Historical data is synthetic, not real customer data. Dependencies, build/cache files, runtime state, secrets and binary assets are excluded.",
+    "fileSummary": true,
+    "directoryStructure": true,
+    "files": true,
+    "removeComments": false,
+    "removeEmptyLines": false,
+    "showLineNumbers": false,
+    "includeEmptyDirectories": true,
+    "git": {
+      "sortByChanges": false,
+      "includeDiffs": false,
+      "includeLogs": false
+    }
+  },
+  "ignore": {
+    "useGitignore": true,
+    "useDefaultPatterns": false,
+    "customPatterns": [
+      "**/node_modules/**",
+      "**/.git/**",
+      "**/.tools/**",
+      "**/.build-tools/**",
+      "**/.pio/**",
+      "**/.venv/**",
+      "**/__pycache__/**",
+      "**/context/**",
+      "repomix-output.*",
+      "repomix-manifest.json"
+    ]
+  },
+  "security": {
+    "enableSecurityCheck": true
+  },
+  "tokenCount": {
+    "encoding": "o200k_base"
+  }
+}

@@ -1,0 +1,1 @@
+PASS 14 firmware gesture/threshold/arrival/CSAT/debounce/wrap/spam assertions

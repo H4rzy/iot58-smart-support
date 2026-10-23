@@ -1,0 +1,5 @@
+[
+ {"staff_id":"NV01","name":"An","zones":["A","C"],"status":"AVAILABLE"},
+ {"staff_id":"NV02","name":"Bình","zones":["B"],"status":"AVAILABLE"},
+ {"staff_id":"NV03","name":"Chi","zones":["A","B","C"],"status":"AVAILABLE"}
+]

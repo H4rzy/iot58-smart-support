@@ -1,0 +1,1122 @@
+[
+  {
+    "id": "tab01",
+    "type": "tab",
+    "label": "01 MQTT INGEST",
+    "disabled": false,
+    "info": "Wildcard cp/+/event, schema validation, device/topic match and bounded payload; msg_id dedup persists with TTL. Simulator LWT uses one connection."
+  },
+  {
+    "id": "comment01",
+    "type": "comment",
+    "z": "tab01",
+    "name": "Wildcard cp/+/event, schema validation, device/topic match and bounded payload; msg_id dedup persists with TTL. Simulator LWT uses one connection.",
+    "info": "Wildcard cp/+/event, schema validation, device/topic match and bounded payload; msg_id dedup persists with TTL. Simulator LWT uses one connection.",
+    "x": 410,
+    "y": 60,
+    "wires": []
+  },
+  {
+    "id": "tab02",
+    "type": "tab",
+    "label": "02 TICKET ENGINE",
+    "disabled": false,
+    "info": "Global source of truth: REQUEST, CANCEL_REQUEST, STAFF_ARRIVED and CSAT; per-device single active ticket. Rejected transitions produce audit plus receipt."
+  },
+  {
+    "id": "comment02",
+    "type": "comment",
+    "z": "tab02",
+    "name": "Global source of truth: REQUEST, CANCEL_REQUEST, STAFF_ARRIVED and CSAT; per-device single active ticket. Rejected transitions produce audit plus receipt.",
+    "info": "Global source of truth: REQUEST, CANCEL_REQUEST, STAFF_ARRIVED and CSAT; per-device single active ticket. Rejected transitions produce audit plus receipt.",
+    "x": 410,
+    "y": 60,
+    "wires": []
+  },
+  {
+    "id": "tab03",
+    "type": "tab",
+    "label": "03 PRIORITY QUEUE",
+    "disabled": false,
+    "info": "Canonical type weight +5/min aging +20/level; deterministic oldest tie; global rank and zero-safe adaptive ETA."
+  },
+  {
+    "id": "comment03",
+    "type": "comment",
+    "z": "tab03",
+    "name": "Canonical type weight +5/min aging +20/level; deterministic oldest tie; global rank and zero-safe adaptive ETA.",
+    "info": "Canonical type weight +5/min aging +20/level; deterministic oldest tie; global rank and zero-safe adaptive ETA.",
+    "x": 410,
+    "y": 60,
+    "wires": []
+  },
+  {
+    "id": "tab04",
+    "type": "tab",
+    "label": "04 STAFF DISPATCH",
+    "disabled": false,
+    "info": "Staff score100*available+30*zone-10*assigned; reservation, active-count/last-assignment/id ties; no assignment to BUSY/OFFLINE."
+  },
+  {
+    "id": "comment04",
+    "type": "comment",
+    "z": "tab04",
+    "name": "Staff score100*available+30*zone-10*assigned; reservation, active-count/last-assignment/id ties; no assignment to BUSY/OFFLINE.",
+    "info": "Staff score100*available+30*zone-10*assigned; reservation, active-count/last-assignment/id ties; no assignment to BUSY/OFFLINE.",
+    "x": 410,
+    "y": 60,
+    "wires": []
+  },
+  {
+    "id": "tab05",
+    "type": "tab",
+    "label": "05 SLA / ESCALATION",
+    "disabled": false,
+    "info": "Real elapsed clock: assignment ACK timeout, reassignment excluding attempts, L1/L2 escalation, CSAT expiry and spam unlock."
+  },
+  {
+    "id": "comment05",
+    "type": "comment",
+    "z": "tab05",
+    "name": "Real elapsed clock: assignment ACK timeout, reassignment excluding attempts, L1/L2 escalation, CSAT expiry and spam unlock.",
+    "info": "Real elapsed clock: assignment ACK timeout, reassignment excluding attempts, L1/L2 escalation, CSAT expiry and spam unlock.",
+    "x": 410,
+    "y": 60,
+    "wires": []
+  },
+  {
+    "id": "tab06",
+    "type": "tab",
+    "label": "06 DEVICE DOWNLINK",
+    "disabled": false,
+    "info": "Retained per-device snapshots/receipts plus queue/display/metrics; dynamic MQTT out QoS1. CMD_APPLIED receipt does not generate command loop."
+  },
+  {
+    "id": "comment06",
+    "type": "comment",
+    "z": "tab06",
+    "name": "Retained per-device snapshots/receipts plus queue/display/metrics; dynamic MQTT out QoS1. CMD_APPLIED receipt does not generate command loop.",
+    "info": "Retained per-device snapshots/receipts plus queue/display/metrics; dynamic MQTT out QoS1. CMD_APPLIED receipt does not generate command loop.",
+    "x": 410,
+    "y": 60,
+    "wires": []
+  },
+  {
+    "id": "tab07",
+    "type": "tab",
+    "label": "07 APPLICATION COMMANDS",
+    "disabled": false,
+    "info": "REST middleware validates ACK/DONE/staff/reset/mode/clock and queues outputs; half-second tick forwards command to MQTT without dashboard dependency."
+  },
+  {
+    "id": "comment07",
+    "type": "comment",
+    "z": "tab07",
+    "name": "REST middleware validates ACK/DONE/staff/reset/mode/clock and queues outputs; half-second tick forwards command to MQTT without dashboard dependency.",
+    "info": "REST middleware validates ACK/DONE/staff/reset/mode/clock and queues outputs; half-second tick forwards command to MQTT without dashboard dependency.",
+    "x": 410,
+    "y": 60,
+    "wires": []
+  },
+  {
+    "id": "tab08",
+    "type": "tab",
+    "label": "08 TELEGRAM",
+    "disabled": false,
+    "info": "Direct Telegram HTTPS API, token from env, polling callback allowlist and assigned-staff checks, graceful disable and notifications on output alerts."
+  },
+  {
+    "id": "comment08",
+    "type": "comment",
+    "z": "tab08",
+    "name": "Direct Telegram HTTPS API, token from env, polling callback allowlist and assigned-staff checks, graceful disable and notifications on output alerts.",
+    "info": "Direct Telegram HTTPS API, token from env, polling callback allowlist and assigned-staff checks, graceful disable and notifications on output alerts.",
+    "x": 410,
+    "y": 60,
+    "wires": []
+  },
+  {
+    "id": "tab09",
+    "type": "tab",
+    "label": "09 ANALYTICS",
+    "disabled": false,
+    "info": "Tested analytics module: measured response at physical ARRIVED, nearest-rank P90, EWMA service AHT, CSAT and overload cooldown."
+  },
+  {
+    "id": "comment09",
+    "type": "comment",
+    "z": "tab09",
+    "name": "Tested analytics module: measured response at physical ARRIVED, nearest-rank P90, EWMA service AHT, CSAT and overload cooldown.",
+    "info": "Tested analytics module: measured response at physical ARRIVED, nearest-rank P90, EWMA service AHT, CSAT and overload cooldown.",
+    "x": 410,
+    "y": 60,
+    "wires": []
+  },
+  {
+    "id": "tab10",
+    "type": "tab",
+    "label": "10 FORECAST",
+    "disabled": false,
+    "info": "History dataset loaded from data/history.json; matching weekday/hour4 weeks, zero bins, staffing utilization .8; forecast virtual time separated from SLA."
+  },
+  {
+    "id": "comment10",
+    "type": "comment",
+    "z": "tab10",
+    "name": "History dataset loaded from data/history.json; matching weekday/hour4 weeks, zero bins, staffing utilization .8; forecast virtual time separated from SLA.",
+    "info": "History dataset loaded from data/history.json; matching weekday/hour4 weeks, zero bins, staffing utilization .8; forecast virtual time separated from SLA.",
+    "x": 410,
+    "y": 60,
+    "wires": []
+  },
+  {
+    "id": "tab11",
+    "type": "tab",
+    "label": "11 REST API",
+    "disabled": false,
+    "info": "Core API paths served by settings.js httpNodeMiddleware, JSON400/404/409, same-origin mutation/rate limiting, optional API_TOKEN. Flow-health verifies loaded graph."
+  },
+  {
+    "id": "comment11",
+    "type": "comment",
+    "z": "tab11",
+    "name": "Core API paths served by settings.js httpNodeMiddleware, JSON400/404/409, same-origin mutation/rate limiting, optional API_TOKEN. Flow-health verifies loaded graph.",
+    "info": "Core API paths served by settings.js httpNodeMiddleware, JSON400/404/409, same-origin mutation/rate limiting, optional API_TOKEN. Flow-health verifies loaded graph.",
+    "x": 410,
+    "y": 60,
+    "wires": []
+  },
+  {
+    "id": "tab12",
+    "type": "tab",
+    "label": "12 AUDIT / LOGGING",
+    "disabled": false,
+    "info": "Append-only events.jsonl plus atomic state.json/.bak recovery; engine state mirrored into Node-RED localfilesystem context every tick. No secrets in logs."
+  },
+  {
+    "id": "comment12",
+    "type": "comment",
+    "z": "tab12",
+    "name": "Append-only events.jsonl plus atomic state.json/.bak recovery; engine state mirrored into Node-RED localfilesystem context every tick. No secrets in logs.",
+    "info": "Append-only events.jsonl plus atomic state.json/.bak recovery; engine state mirrored into Node-RED localfilesystem context every tick. No secrets in logs.",
+    "x": 410,
+    "y": 60,
+    "wires": []
+  },
+  {
+    "id": "broker",
+    "type": "mqtt-broker",
+    "name": "Configurable MQTT broker",
+    "broker": "${MQTT_HOST}",
+    "port": "${MQTT_PORT}",
+    "clientid": "",
+    "autoConnect": true,
+    "usetls": false,
+    "protocolVersion": "4",
+    "keepalive": "30",
+    "cleansession": true,
+    "autoUnsubscribe": true,
+    "birthTopic": "",
+    "birthQos": "0",
+    "birthPayload": "",
+    "closeTopic": "",
+    "closeQos": "0",
+    "closePayload": "",
+    "willTopic": "",
+    "willQos": "0",
+    "willPayload": ""
+  },
+  {
+    "id": "mqtt_events",
+    "type": "mqtt in",
+    "z": "tab01",
+    "name": "Customer uplink",
+    "x": 150,
+    "y": 150,
+    "wires": [
+      [
+        "ingest"
+      ]
+    ],
+    "topic": "${MQTT_EVENTS_TOPIC}",
+    "qos": "1",
+    "datatype": "utf8",
+    "broker": "broker",
+    "nl": false,
+    "rap": true,
+    "rh": 0,
+    "inputs": 0
+  },
+  {
+    "id": "ingest",
+    "type": "function",
+    "z": "tab01",
+    "name": "Validate + dedup + engine ingress",
+    "x": 400,
+    "y": 150,
+    "wires": [
+      [
+        "to02"
+      ]
+    ],
+    "func": "const r=global.get('iot58'); msg.result=r.ingest(msg); return msg;",
+    "outputs": 1,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": []
+  },
+  {
+    "id": "to02",
+    "type": "link out",
+    "z": "tab01",
+    "name": "Pipeline",
+    "x": 650,
+    "y": 150,
+    "wires": [],
+    "mode": "link",
+    "links": [
+      "from01"
+    ]
+  },
+  {
+    "id": "from01",
+    "type": "link in",
+    "z": "tab02",
+    "name": "Pipeline",
+    "x": 120,
+    "y": 150,
+    "wires": [
+      [
+        "state_engine"
+      ]
+    ],
+    "links": [
+      "to02"
+    ]
+  },
+  {
+    "id": "state_engine",
+    "type": "function",
+    "z": "tab02",
+    "name": "State transition result",
+    "x": 400,
+    "y": 150,
+    "wires": [
+      [
+        "to03"
+      ]
+    ],
+    "func": "msg.accepted=msg.result?.ok; return msg;",
+    "outputs": 1,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": []
+  },
+  {
+    "id": "to03",
+    "type": "link out",
+    "z": "tab02",
+    "name": "Pipeline",
+    "x": 650,
+    "y": 150,
+    "wires": [],
+    "mode": "link",
+    "links": [
+      "from02"
+    ]
+  },
+  {
+    "id": "from02",
+    "type": "link in",
+    "z": "tab03",
+    "name": "Pipeline",
+    "x": 120,
+    "y": 150,
+    "wires": [
+      [
+        "queue"
+      ]
+    ],
+    "links": [
+      "to03"
+    ]
+  },
+  {
+    "id": "queue",
+    "type": "function",
+    "z": "tab03",
+    "name": "Recompute aging / rank / ETA",
+    "x": 400,
+    "y": 150,
+    "wires": [
+      [
+        "to04"
+      ]
+    ],
+    "func": "global.get('iot58').engine.recompute(); return msg;",
+    "outputs": 1,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": []
+  },
+  {
+    "id": "to04",
+    "type": "link out",
+    "z": "tab03",
+    "name": "Pipeline",
+    "x": 650,
+    "y": 150,
+    "wires": [],
+    "mode": "link",
+    "links": [
+      "from03"
+    ]
+  },
+  {
+    "id": "from03",
+    "type": "link in",
+    "z": "tab04",
+    "name": "Pipeline",
+    "x": 120,
+    "y": 150,
+    "wires": [
+      [
+        "dispatch"
+      ]
+    ],
+    "links": [
+      "to04"
+    ]
+  },
+  {
+    "id": "dispatch",
+    "type": "function",
+    "z": "tab04",
+    "name": "Dispatch available staff",
+    "x": 400,
+    "y": 150,
+    "wires": [
+      [
+        "to06"
+      ]
+    ],
+    "func": "global.get('iot58').engine.dispatch(); return msg;",
+    "outputs": 1,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": []
+  },
+  {
+    "id": "to06",
+    "type": "link out",
+    "z": "tab04",
+    "name": "Pipeline",
+    "x": 650,
+    "y": 150,
+    "wires": [],
+    "mode": "link",
+    "links": [
+      "downlink_in"
+    ]
+  },
+  {
+    "id": "timer",
+    "type": "inject",
+    "z": "tab05",
+    "name": "Real clock 500ms",
+    "x": 150,
+    "y": 150,
+    "wires": [
+      [
+        "sla"
+      ]
+    ],
+    "props": [
+      {
+        "p": "payload"
+      },
+      {
+        "p": "topic",
+        "vt": "str"
+      }
+    ],
+    "repeat": "0.5",
+    "crontab": "",
+    "once": true,
+    "onceDelay": 0.5,
+    "topic": "",
+    "payload": "",
+    "payloadType": "date"
+  },
+  {
+    "id": "sla",
+    "type": "function",
+    "z": "tab05",
+    "name": "Timeout / escalation / expiry",
+    "x": 400,
+    "y": 150,
+    "wires": [
+      [
+        "to09"
+      ]
+    ],
+    "func": "global.get('iot58').engine.tick(); return msg;",
+    "outputs": 1,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": []
+  },
+  {
+    "id": "to09",
+    "type": "link out",
+    "z": "tab05",
+    "name": "Pipeline",
+    "x": 650,
+    "y": 150,
+    "wires": [],
+    "mode": "link",
+    "links": [
+      "analytics_in"
+    ]
+  },
+  {
+    "id": "downlink_in",
+    "type": "link in",
+    "z": "tab06",
+    "name": "All command outputs",
+    "x": 120,
+    "y": 150,
+    "wires": [
+      [
+        "flush"
+      ]
+    ],
+    "links": [
+      "to06",
+      "to12",
+      "application_link",
+      "application_link2"
+    ]
+  },
+  {
+    "id": "flush",
+    "type": "function",
+    "z": "tab06",
+    "name": "Drain device commands + notify",
+    "x": 400,
+    "y": 150,
+    "wires": [
+      [
+        "mqtt_out",
+        "debug_cmd"
+      ]
+    ],
+    "func": "const msgs=global.get('iot58').flush(); return [msgs];",
+    "outputs": 1,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": []
+  },
+  {
+    "id": "mqtt_out",
+    "type": "mqtt out",
+    "z": "tab06",
+    "name": "MQTT downlink / summaries",
+    "x": 700,
+    "y": 150,
+    "wires": [],
+    "topic": "",
+    "qos": "",
+    "retain": "",
+    "respTopic": "",
+    "contentType": "",
+    "userProps": "",
+    "correl": "",
+    "expiry": "",
+    "broker": "broker"
+  },
+  {
+    "id": "debug_cmd",
+    "type": "debug",
+    "z": "tab06",
+    "name": "MQTT output (enable for evidence)",
+    "x": 700,
+    "y": 220,
+    "wires": [],
+    "active": false,
+    "tosidebar": true,
+    "console": false,
+    "tostatus": false,
+    "complete": "true",
+    "targetType": "full",
+    "statusVal": "",
+    "statusType": "auto"
+  },
+  {
+    "id": "app_tick",
+    "type": "inject",
+    "z": "tab07",
+    "name": "Application output check500ms",
+    "x": 180,
+    "y": 150,
+    "wires": [
+      [
+        "app_changed"
+      ]
+    ],
+    "props": [
+      {
+        "p": "payload"
+      }
+    ],
+    "repeat": "0.5",
+    "crontab": "",
+    "once": false,
+    "onceDelay": 0.1,
+    "payload": "",
+    "payloadType": "date"
+  },
+  {
+    "id": "app_changed",
+    "type": "function",
+    "z": "tab07",
+    "name": "Forward REST command outbox",
+    "x": 400,
+    "y": 150,
+    "wires": [
+      [
+        "application_link"
+      ]
+    ],
+    "func": "return msg;",
+    "outputs": 1,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": []
+  },
+  {
+    "id": "application_link",
+    "type": "link out",
+    "z": "tab07",
+    "name": "Pipeline",
+    "x": 650,
+    "y": 150,
+    "wires": [],
+    "mode": "link",
+    "links": [
+      "downlink_in"
+    ]
+  },
+  {
+    "id": "telegram_tick",
+    "type": "inject",
+    "z": "tab08",
+    "name": "Telegram poll2s",
+    "x": 170,
+    "y": 150,
+    "wires": [
+      [
+        "telegram"
+      ]
+    ],
+    "props": [
+      {
+        "p": "payload"
+      }
+    ],
+    "repeat": "2",
+    "crontab": "",
+    "once": true,
+    "onceDelay": 2,
+    "payload": "",
+    "payloadType": "date"
+  },
+  {
+    "id": "telegram",
+    "type": "function",
+    "z": "tab08",
+    "name": "Poll HTTPS callbacks",
+    "x": 400,
+    "y": 150,
+    "wires": [
+      [
+        "application_link2"
+      ]
+    ],
+    "func": "const r=global.get('iot58'); if(!r.telegram.enabled) return null; r.telegram.poll().then(()=>node.send(msg)).catch(()=>{}); return null;",
+    "outputs": 1,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": []
+  },
+  {
+    "id": "application_link2",
+    "type": "link out",
+    "z": "tab08",
+    "name": "Pipeline",
+    "x": 650,
+    "y": 150,
+    "wires": [],
+    "mode": "link",
+    "links": [
+      "downlink_in"
+    ]
+  },
+  {
+    "id": "analytics_in",
+    "type": "link in",
+    "z": "tab09",
+    "name": "Pipeline",
+    "x": 120,
+    "y": 150,
+    "wires": [
+      [
+        "analytics"
+      ]
+    ],
+    "links": [
+      "to09"
+    ]
+  },
+  {
+    "id": "analytics",
+    "type": "function",
+    "z": "tab09",
+    "name": "Measured response / AHT / overload",
+    "x": 400,
+    "y": 150,
+    "wires": [
+      [
+        "to10"
+      ]
+    ],
+    "func": "const r=global.get('iot58'); r.engine.recompute(); msg.metrics=r.engine.metrics; return msg;",
+    "outputs": 1,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": []
+  },
+  {
+    "id": "to10",
+    "type": "link out",
+    "z": "tab09",
+    "name": "Pipeline",
+    "x": 650,
+    "y": 150,
+    "wires": [],
+    "mode": "link",
+    "links": [
+      "forecast_in"
+    ]
+  },
+  {
+    "id": "forecast_in",
+    "type": "link in",
+    "z": "tab10",
+    "name": "Pipeline",
+    "x": 120,
+    "y": 150,
+    "wires": [
+      [
+        "forecast"
+      ]
+    ],
+    "links": [
+      "to10"
+    ]
+  },
+  {
+    "id": "forecast",
+    "type": "function",
+    "z": "tab10",
+    "name": "Expose virtual-time forecast",
+    "x": 400,
+    "y": 150,
+    "wires": [
+      [
+        "to12_forecast"
+      ]
+    ],
+    "func": "msg.forecast=global.get('iot58').engine.forecast; return msg;",
+    "outputs": 1,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": []
+  },
+  {
+    "id": "to12_forecast",
+    "type": "link out",
+    "z": "tab10",
+    "name": "Pipeline",
+    "x": 650,
+    "y": 150,
+    "wires": [],
+    "mode": "link",
+    "links": [
+      "audit_in"
+    ]
+  },
+  {
+    "id": "http_health",
+    "type": "http in",
+    "z": "tab11",
+    "name": "Loaded-flow health",
+    "x": 160,
+    "y": 150,
+    "wires": [
+      [
+        "flow_health"
+      ]
+    ],
+    "url": "/api/iot58/flow-health",
+    "method": "get",
+    "upload": false,
+    "swaggerDoc": ""
+  },
+  {
+    "id": "flow_health",
+    "type": "function",
+    "z": "tab11",
+    "name": "JSON health",
+    "x": 400,
+    "y": 150,
+    "wires": [
+      [
+        "http_response"
+      ]
+    ],
+    "func": "msg.payload={ok:true,flows_loaded:true};msg.headers={'Content-Type':'application/json'};return msg;",
+    "outputs": 1,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": []
+  },
+  {
+    "id": "http_response",
+    "type": "http response",
+    "z": "tab11",
+    "name": "JSON200",
+    "x": 670,
+    "y": 150,
+    "wires": [],
+    "statusCode": "",
+    "headers": {}
+  },
+  {
+    "id": "audit_in",
+    "type": "link in",
+    "z": "tab12",
+    "name": "Pipeline",
+    "x": 120,
+    "y": 150,
+    "wires": [
+      [
+        "audit"
+      ]
+    ],
+    "links": [
+      "to12_forecast"
+    ]
+  },
+  {
+    "id": "audit",
+    "type": "function",
+    "z": "tab12",
+    "name": "Persist state / localfilesystem",
+    "x": 400,
+    "y": 150,
+    "wires": [
+      [
+        "to12"
+      ]
+    ],
+    "func": "const r=global.get('iot58'); flow.set('iot58_state',r.engine.state);r.persist();return msg;",
+    "outputs": 1,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": []
+  },
+  {
+    "id": "to12",
+    "type": "link out",
+    "z": "tab12",
+    "name": "Pipeline",
+    "x": 650,
+    "y": 150,
+    "wires": [],
+    "mode": "link",
+    "links": [
+      "downlink_in"
+    ]
+  },
+  {
+    "id": "sim_status",
+    "type": "mqtt in",
+    "z": "tab01",
+    "name": "Simulator online/LWT",
+    "x": 150,
+    "y": 300,
+    "wires": [
+      [
+        "device_status"
+      ]
+    ],
+    "topic": "${MQTT_STATUS_TOPIC}",
+    "qos": "1",
+    "datatype": "utf8",
+    "broker": "broker",
+    "nl": false,
+    "rap": true,
+    "rh": 0,
+    "inputs": 0
+  },
+  {
+    "id": "device_status",
+    "type": "function",
+    "z": "tab01",
+    "name": "Record online/offline",
+    "x": 450,
+    "y": 300,
+    "wires": [],
+    "func": "global.get('iot58').status(msg);return null;",
+    "outputs": 1,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": []
+  },
+  {
+    "id": "mqtt_vision",
+    "type": "mqtt in",
+    "z": "tab01",
+    "name": "Camera presence",
+    "x": 150,
+    "y": 520,
+    "wires": [
+      [
+        "vision_ingest"
+      ]
+    ],
+    "topic": "${MQTT_VISION_TOPIC}",
+    "qos": "0",
+    "datatype": "utf8",
+    "broker": "broker",
+    "nl": false,
+    "rap": true,
+    "rh": 0,
+    "inputs": 0
+  },
+  {
+    "id": "vision_ingest",
+    "type": "function",
+    "z": "tab01",
+    "name": "Record camera presence",
+    "x": 450,
+    "y": 520,
+    "wires": [],
+    "func": "global.get('iot58').ingestVision(msg); return null;",
+    "outputs": 1,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": []
+  },
+  {
+    "id": "mqtt_status",
+    "type": "status",
+    "z": "tab01",
+    "name": "MQTT connection status",
+    "x": 180,
+    "y": 400,
+    "wires": [
+      [
+        "set_connection"
+      ]
+    ],
+    "scope": [
+      "mqtt_events"
+    ]
+  },
+  {
+    "id": "set_connection",
+    "type": "function",
+    "z": "tab01",
+    "name": "Connection state",
+    "x": 460,
+    "y": 400,
+    "wires": [],
+    "func": "global.get('iot58').setMqtt(msg.status?.text==='node-red:common.status.connected'||msg.status?.text==='connected');return null;",
+    "outputs": 1,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": []
+  },
+  {
+    "id": "flow_catch",
+    "type": "catch",
+    "z": "tab12",
+    "name": "Runtime flow errors",
+    "x": 170,
+    "y": 300,
+    "wires": [
+      [
+        "log_error"
+      ]
+    ],
+    "scope": null,
+    "uncaught": false
+  },
+  {
+    "id": "log_error",
+    "type": "function",
+    "z": "tab12",
+    "name": "Safe audit error",
+    "x": 450,
+    "y": 300,
+    "wires": [
+      [
+        "debug_error"
+      ]
+    ],
+    "func": "global.get('iot58').engine.log('FLOW_ERROR',{message:msg.error?.message||'Unknown flow error'});return msg;",
+    "outputs": 1,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": []
+  },
+  {
+    "id": "debug_error",
+    "type": "debug",
+    "z": "tab12",
+    "name": "Flow errors",
+    "x": 700,
+    "y": 300,
+    "wires": [],
+    "active": true,
+    "tosidebar": true,
+    "console": false,
+    "tostatus": false,
+    "complete": "error",
+    "targetType": "msg",
+    "statusVal": "",
+    "statusType": "auto"
+  },
+  {
+    "id": "api_route0",
+    "type": "http in",
+    "z": "tab11",
+    "name": "GET /api/iot58/:endpoint",
+    "url": "/api/iot58/:endpoint",
+    "method": "get",
+    "upload": false,
+    "swaggerDoc": "",
+    "x": 220,
+    "y": 260,
+    "wires": [
+      [
+        "api_fallback"
+      ]
+    ]
+  },
+  {
+    "id": "api_route1",
+    "type": "http in",
+    "z": "tab11",
+    "name": "POST /api/iot58/tickets/:ticketId/:action",
+    "url": "/api/iot58/tickets/:ticketId/:action",
+    "method": "post",
+    "upload": false,
+    "swaggerDoc": "",
+    "x": 220,
+    "y": 330,
+    "wires": [
+      [
+        "api_fallback"
+      ]
+    ]
+  },
+  {
+    "id": "api_route2",
+    "type": "http in",
+    "z": "tab11",
+    "name": "POST /api/iot58/staff/:staffId/status",
+    "url": "/api/iot58/staff/:staffId/status",
+    "method": "post",
+    "upload": false,
+    "swaggerDoc": "",
+    "x": 220,
+    "y": 400,
+    "wires": [
+      [
+        "api_fallback"
+      ]
+    ]
+  },
+  {
+    "id": "api_route3",
+    "type": "http in",
+    "z": "tab11",
+    "name": "POST /api/iot58/demo/:action",
+    "url": "/api/iot58/demo/:action",
+    "method": "post",
+    "upload": false,
+    "swaggerDoc": "",
+    "x": 220,
+    "y": 470,
+    "wires": [
+      [
+        "api_fallback"
+      ]
+    ]
+  },
+  {
+    "id": "api_fallback",
+    "type": "function",
+    "z": "tab11",
+    "name": "Middleware handled requests; fallback404",
+    "func": "msg.statusCode=404;msg.payload={ok:false,error:'Endpoint not found'};return msg;",
+    "outputs": 1,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 650,
+    "y": 320,
+    "wires": [
+      [
+        "http_response"
+      ]
+    ]
+  }
+]

@@ -1,0 +1,21 @@
+{
+  "name": "huit-iot58-smart-support",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Máy lấy số / gọi nhân viên hỗ trợ thông minh",
+  "scripts": {
+    "start": "node-red --userDir . --settings settings.js",
+    "test": "node --test test/*.test.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "mqtt": "^5.10.4",
+    "node-red": "^4.0.9"
+  },
+  "engines": {
+    "node": "^20.17.0 || >=22.9.0"
+  },
+  "overrides": {
+    "npm": "11.21.0"
+  }
+}

@@ -1,5 +1,11 @@
 # Máy lấy số / gọi nhân viên hỗ trợ thông minh
 
+**Thuyết trình và demo trong 5 phút:** [Kịch bản có lời thoại và Node-RED](docs/DEMO_SCRIPT_FINAL.md) · [Thẻ thao tác theo phút](docs/QUICK_DEMO.md). Thời gian gồm thao tác camera, ACK/ARRIVED/DONE và forecast; hướng dẫn dài dùng để chuẩn bị/Q&A.
+
+**Chạy demo:** `powershell -ExecutionPolicy Bypass -File tools/start_demo.ps1` từ root; thêm `-Auto` để diễn tập tự động trên Chrome. [Hướng dẫn thao tác + lời thuyết trình + tác dụng từng chức năng](docs/HUONG_DAN_DEMO.md). Runner dùng MQTT mô phỏng thiết bị và reset phiên demo, không thay bằng chứng nút Wokwi.
+
+**Webcam Dashboard (2026-10-31):** bật webcam laptop, chọn ticket và chụp ảnh kèm ticket trực tiếp trên Dashboard. Ảnh lưu cục bộ trong trình duyệt, có tải/xóa; camera tắt mặc định và không ảnh hưởng queue. Đây là camera ngoài Wokwi, riêng với luồng đếm người. [Hướng dẫn webcam](application/README.md).
+
 **HUIT · Internet of Things · Đề tài 58.** Tạo hàng đợi yêu cầu hỗ trợ tại cửa hàng và đo thời gian phản hồi thực khi nhân viên đến nơi.
 
 Đã kiểm thử:95 unit/runtime/mock tests (gồm 46 vision),6 MQTT scenarios (gồm vision), Dashboard trên Chrome, firmware compile/14 gesture cases và Wokwi browser E2E/offline-reboot. [Kết quả và bằng chứng thật](docs/TEST_RESULTS.md); Telegram live chờ token, hardware thật optional.

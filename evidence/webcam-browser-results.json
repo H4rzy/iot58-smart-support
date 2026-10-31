@@ -1,0 +1,14 @@
+{
+  "at": "2026-10-31T03:53:18.443Z",
+  "source": "Playwright Chrome with fake media device and recorded state fixture; not a physical webcam test",
+  "checks": [
+    "Camera off by default; ticket options render without requesting media",
+    "Fake camera captures nonempty JPEG Blob linked to selected ticket in IndexedDB",
+    "Stop releases video track; audio is never requested",
+    "Saved attachment survives page reload; camera stays off; delete removes attachment",
+    "Photo capacity stays20, oldest entries evicted; recapture replaces; confirmed clear deletes all",
+    "Mobile390px has no horizontal page overflow; offline API disables capture",
+    "Permission rejection is handled; retry stays available and queue UI remains functional"
+  ],
+  "errors": []
+}

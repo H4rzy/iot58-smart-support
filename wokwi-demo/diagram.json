@@ -81,6 +81,45 @@
       "top": 200,
       "left": 235,
       "attrs": {}
+    },
+    {
+      "type": "wokwi-slide-potentiometer",
+      "id": "cameraA",
+      "top": 300,
+      "left": 60,
+      "attrs": {
+        "label": "CAM A (so nguoi 0-4)",
+        "travelLength": "30",
+        "minValue": "0",
+        "maxValue": "4095",
+        "initialValue": "2048"
+      }
+    },
+    {
+      "type": "wokwi-slide-potentiometer",
+      "id": "cameraB",
+      "top": 355,
+      "left": 60,
+      "attrs": {
+        "label": "CAM B (so nguoi 0-4)",
+        "travelLength": "30",
+        "minValue": "0",
+        "maxValue": "4095",
+        "initialValue": "0"
+      }
+    },
+    {
+      "type": "wokwi-slide-potentiometer",
+      "id": "cameraC",
+      "top": 410,
+      "left": 60,
+      "attrs": {
+        "label": "CAM C (so nguoi 0-4)",
+        "travelLength": "30",
+        "minValue": "0",
+        "maxValue": "4095",
+        "initialValue": "0"
+      }
     }
   ],
   "connections": [
@@ -220,6 +259,60 @@
       "ledB01:DOUT",
       "ledC01:DIN",
       "green",
+      []
+    ],
+    [
+      "esp:34",
+      "cameraA:SIG",
+      "green",
+      []
+    ],
+    [
+      "esp:3V3",
+      "cameraA:VCC",
+      "red",
+      []
+    ],
+    [
+      "cameraA:GND",
+      "esp:GND.1",
+      "black",
+      []
+    ],
+    [
+      "esp:35",
+      "cameraB:SIG",
+      "blue",
+      []
+    ],
+    [
+      "esp:3V3",
+      "cameraB:VCC",
+      "red",
+      []
+    ],
+    [
+      "cameraB:GND",
+      "esp:GND.1",
+      "black",
+      []
+    ],
+    [
+      "esp:32",
+      "cameraC:SIG",
+      "orange",
+      []
+    ],
+    [
+      "esp:3V3",
+      "cameraC:VCC",
+      "red",
+      []
+    ],
+    [
+      "cameraC:GND",
+      "esp:GND.1",
+      "black",
       []
     ]
   ],

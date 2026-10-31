@@ -1,5 +1,9 @@
 # Công cụ kiểm chứng
 
+**Demo trực tiếp:** từ root chạy `powershell -ExecutionPolicy Bypass -File tools/start_demo.ps1` để mở server/Dashboard và tạo queue A/B với staff BUSY; thêm `-Auto` để xem diễn tập Chrome. Cần npm dependencies Node-RED/tools và Chrome. Runner đọc broker/topic/API_TOKEN từ .env, dùng real MQTT/REST/UI nhưng mô phỏng event thiết bị/counts; không tự xin quyền webcam. Reset phiên ở đầu; auto kết thúc giữ KPI và tạo lại queue A/B. JSON kết quả ở evidence/live-demo-results.json. Không chạy cùng Wokwi/publisher vision khác. [Hướng dẫn chi tiết](../docs/HUONG_DAN_DEMO.md).
+
+Webcam Dashboard: `node tools/webcam_smoke_test.js` từ root. Dùng Chrome fake media device + recorded state fixture; không cần MQTT/Node-RED đang chạy. Kiểm tra capture JPEG/IndexedDB, reload/stop/denied/offline/mobile, bounded storage và delete/clear; ghi `evidence/webcam-browser-results.json`. Không dùng kết quả này để claim camera vật lý.
+
 Từ repository root:
 
 ```powershell

@@ -17,7 +17,8 @@ fragments = [between("namespace Config {", "enum class LocalState"),
              between("enum class LocalState", "// One daisy-chain"),
              between("bool elapsed(", "bool stateFromText"),
              between("bool isWaiting(", "// Worker-only flash writing;"),
-             between("bool suspiciousPress(", "void applyCommand(")]
+             between("bool suspiciousPress(", "void updateCameras("),
+             between("void updateButton(", "void applyCommand(")]
 adapter = r'''
 #include <cstdint>
 #include <cstring>

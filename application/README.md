@@ -1,5 +1,15 @@
 # Dashboard vận hành cửa hàng
 
+## Webcam laptop và ảnh ticket — bổ sung 2026-10-31
+
+Mở Dashboard tại `http://localhost:1880/`, kéo xuống **Ảnh khu vực gắn với ticket**. Tạo ticket bằng nút A/B/C, chọn ticket, bấm **Bật webcam**, cho phép camera rồi **Chụp ảnh cho ticket**. Có xem trước trực tiếp, tải JPEG, xóa từng ảnh hoặc toàn bộ ảnh. Bấm **Tắt** để giải phóng webcam; trang không tự bật camera hoặc microphone.
+
+Ảnh lưu bằng IndexedDB **chỉ trên trình duyệt/máy này**, tồn tại sau reload nhưng không gửi server/MQTT hoặc chia sẻ với nhân viên trên máy khác. Mỗi ticket giữ ảnh mới nhất, tối đa20 ảnh; chụp thêm tự loại ảnh cũ nhất. Reset demo chỉ reset server, không xóa kho ảnh; dùng nút xóa toàn bộ ảnh. Xóa dữ liệu website cũng xóa ảnh. Trang HTTPS hoặc localhost mới dùng được getUserMedia; mở bằng địa chỉ LAN HTTP có thể bị trình duyệt chặn.
+
+Đây là webcam bên ngoài Wokwi. Nó hoạt động riêng với `vision/publisher.py`: không tự đếm người, không gửi reading vision và không xác nhận ARRIVED. Khi camera tắt/bị từ chối, queue vẫn hoạt động; khi API mất kết nối, chụp gắn ticket tạm khóa. Ảnh chỉ xuất hiện sau thao tác chụp rõ ràng. Chỉ chụp người đã đồng ý hoặc dùng vật mẫu khi demo.
+
+Kiểm thử: `node tools/webcam_smoke_test.js` từ root, cần dependencies trong tools và Chrome. Dùng fake media device của Chrome + state fixture đã ghi, **không phải xác nhận webcam vật lý**. Kết quả tại [webcam-browser-results](../evidence/webcam-browser-results.json).
+
 Application vanilla HTML/CSS/JS được Node-RED phục vụ tại `http://localhost:1880/`. Không dùng framework, CDN, font online hoặc dashboard plugin. Khởi chạy middleware theo [Node-RED README](../node-red/README.md); không mở `index.html` bằng `file://` vì REST API cần cùng origin.
 
 Dashboard lấy dữ liệu thật từ `GET /api/iot58/state` mỗi 1 giây. Khi API mất kết nối, bản cập nhật gần nhất được đánh dấu và thao tác tạm khóa; không tạo dữ liệu thay thế. MQTT offline được hiển thị riêng với API offline. Telegram có thể DISABLED mà mọi điều khiển Dashboard vẫn hoạt động.

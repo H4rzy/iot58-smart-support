@@ -1,5 +1,14 @@
 # Kết quả kiểm thử thực tế
 
+## Bổ sung webcam Dashboard — 2026-10-31
+
+- `npm test` chạy lại:95/95 PASS,0 fail/skip, gồm vision modules hiện có.
+- `node tools/webcam_smoke_test.js`: Chrome/Playwright dùng fake media device và recorded API-state fixture; kiểm tra camera tắt mặc định, bật/chụp JPEG gắn ticket/IndexedDB, stop giải phóng track, reload giữ ảnh và camera tắt, xóa ảnh, giới hạn20/replace/evict/clear, mobile390px, offline API khóa capture và denied permission có retry. Không phát sinh JavaScript pageerror.
+- `node --check application/camera.js` và `application/app.js`: PASS.
+- Live Node-RED Dashboard trên Chrome: API connected, camera.js HTTP200, webcam controls có mặt, capture tắt mặc định, không JS fatal; không gọi webcam vật lý. Static audit10 checks PASS.
+- Chưa chạy webcam vật lý hoặc E2E camera với Wokwi trong lần bổ sung này; ảnh không gửi server, không xác nhận ARRIVED và không đưa vào thuật toán vision.
+- Kết quả riêng: [webcam-browser-results.json](../evidence/webcam-browser-results.json). Các kết quả bên dưới giữ nguyên mốc kiểm thử gốc, không suy test mới thành Wokwi/Telegram live.
+
 Ngày kiểm thử: 2026-10-09/10 (Asia/Saigon). Windows PowerShell, Node 24.13.0, npm 11.4.2, Python 3.11.9, Chrome và Node-RED 4.1.16. Không tạo screenshot, test hoặc kết quả kinh doanh giả. Đối chiếu [ACCEPTANCE_MATRIX](ACCEPTANCE_MATRIX.md) trước nghiệm thu.
 
 | Check | Kết quả đã chạy | Phạm vi thực tế |

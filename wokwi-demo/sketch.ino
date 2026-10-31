@@ -17,12 +17,15 @@
 
 namespace Config {
 const char *WIFI_SSID = "Wokwi-GUEST", *WIFI_PASSWORD = "";
-const char *MQTT_HOST = "broker.hivemq.com";
+const char *MQTT_HOST = "broker.emqx.io";
 const uint16_t MQTT_PORT = 1883;
 // Must match MQTT_BASE_TOPIC in node-red/.env. Change to a unique class namespace.
 const char *BASE_TOPIC = "huit/iot58/n20-smart-support/store/s1";
 const char *MQTT_USER = "", *MQTT_PASSWORD = "";
 const uint8_t BUTTON_PINS[] = {18, 19, 23}, LED_DATA_PIN = 25;
+// Simulated cameras: slide pots stand in for per-zone person counts (counts only, no images).
+const uint8_t CAMERA_PINS[] = {34, 35, 32}, CAMERA_MAX_PERSONS = 4;
+const uint32_t CAMERA_SAMPLE_MS = 200, CAMERA_HEARTBEAT_MS = 3000;
 const uint8_t BUZZER_PIN = 13, SDA_PIN = 21, SCL_PIN = 22;
 const uint32_t DEBOUNCE_MS = 50, SHORT_MS = 800, LONG_MS = 1500, DOUBLE_MS = 400;
 const uint32_t SPAM_WINDOW_MS = 10000, SPAM_LOCK_MS = 30000;
@@ -98,6 +101,7 @@ Adafruit_SSD1306 display(128, 64, &Wire, -1);
 int serverQueueCount = 0, serverTopEta = 0;
 char serverTopTicket[40] = "--", serverTopDevice[8] = "--", serverTopIntent[24] = "";
 uint32_t lastLedAt = 0, lastDisplayAt = 0;
+volatile uint8_t cameraPersons[3] = {0, 0, 0};
 
 // Unsigned subtraction remains valid when millis wraps after 49 days.
 bool elapsed(uint32_t now, uint32_t start, uint32_t duration) { return now - start >= duration; }
@@ -274,6 +278,13 @@ void publishStatus(bool online) {
   snprintf(payload, sizeof(payload), "{\"schema\":1,\"online\":%s,\"boot_id\":\"%s\",\"device_ids\":[\"A01\",\"B01\",\"C01\"]}", online ? "true" : "false", bootId);
   mqtt.publish(topic, payload, true);
 }
+void publishVision(uint8_t zoneIndex) {
+  char topic[Config::TOPIC_BYTES], payload[160];
+  const char zone = "ABC"[zoneIndex];
+  snprintf(topic, sizeof(topic), "%s/vision/%c", Config::BASE_TOPIC, zone);
+  snprintf(payload, sizeof(payload), "{\"schema\":1,\"camera_id\":\"CAM-%c\",\"zone\":\"%c\",\"persons\":%u}", zone, zone, cameraPersons[zoneIndex]);
+  mqtt.publish(topic, payload, false); // Lossy telemetry: fresh count replaces a lost one, never queued in the outbox.
+}
 void networkTask(void *) {
   mqtt.setServer(Config::MQTT_HOST, Config::MQTT_PORT); mqtt.setCallback(mqttCallback);
   mqtt.setBufferSize(2048); mqtt.setSocketTimeout(2); mqtt.setKeepAlive(20);
@@ -281,7 +292,8 @@ void networkTask(void *) {
   transport.setTimeout(2);
   WiFi.mode(WIFI_STA); WiFi.begin(Config::WIFI_SSID, Config::WIFI_PASSWORD, 6);
   uint32_t lastWifiAt = millis(), lastMqttAt = millis() - Config::MQTT_RETRY_MS;
-  uint32_t lastSendAt = 0, lastStatusAt = 0;
+  uint32_t lastSendAt = 0, lastStatusAt = 0, lastVisionAt = 0;
+  uint8_t sentPersons[3] = {255, 255, 255};
   uint32_t forcedOfflineAt = 0;
   bool forcedOffline = false;
   char sentId[Config::ID_BYTES] = "";
@@ -342,6 +354,12 @@ void networkTask(void *) {
       for (uint8_t packet = 0; packet < 12 && mqtt.connected() && transport.available(); ++packet) mqtt.loop();
       mqttOnline = mqtt.connected();
       if (elapsed(now, lastStatusAt, Config::STATUS_MS)) { publishStatus(true); lastStatusAt = now; }
+      for (uint8_t zone = 0; zone < 3; ++zone) {
+        if (cameraPersons[zone] != sentPersons[zone] || elapsed(now, lastVisionAt, Config::CAMERA_HEARTBEAT_MS)) {
+          publishVision(zone); sentPersons[zone] = cameraPersons[zone];
+        }
+      }
+      if (elapsed(now, lastVisionAt, Config::CAMERA_HEARTBEAT_MS)) lastVisionAt = now;
       OutgoingEvent head{}; bool hasHead = false;
       xSemaphoreTake(outboxMutex, portMAX_DELAY);
       if (outboxCount) { head = outbox[0]; hasHead = true; } xSemaphoreGive(outboxMutex);
@@ -417,6 +435,14 @@ void handleGesture(LogicalKiosk &kiosk, const char *gesture, uint32_t now) {
     // Valid new requests, cancel, arrival and rating never count as abuse.
     if (suspiciousPress(kiosk, now)) return;
     enqueueEvent(kiosk, "INVALID_GESTURE", gesture); playSound(INVALID_SOUND, 1);
+  }
+}
+void updateCameras(uint32_t now) {
+  static uint32_t lastSampleAt = 0;
+  if (!elapsed(now, lastSampleAt, Config::CAMERA_SAMPLE_MS)) return;
+  lastSampleAt = now;
+  for (uint8_t zone = 0; zone < 3; ++zone) {
+    cameraPersons[zone] = (uint32_t)analogRead(Config::CAMERA_PINS[zone]) * (Config::CAMERA_MAX_PERSONS + 1) / 4096;
   }
 }
 void updateButton(LogicalKiosk &kiosk, uint32_t now) {
@@ -574,6 +600,7 @@ void loop() {
   for (uint8_t i = 0; i < 4 && xQueueReceive(incomingQueue, &message, 0) == pdTRUE; ++i) applyCommand(message, now);
   if (reconnectNeedsSync) { reconnectNeedsSync = false; for (LogicalKiosk &kiosk : kiosks) enqueueEvent(kiosk, "DEVICE_SYNC"); }
   for (LogicalKiosk &kiosk : kiosks) updateButton(kiosk, now);
+  updateCameras(now);
   updateSound(now);
   if (elapsed(now, lastLedAt, Config::UI_UPDATE_MS)) { lastLedAt = now; updateIndicators(now); }
   updateDisplay(now);

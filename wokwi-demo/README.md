@@ -14,6 +14,11 @@ A01 = iPhone; B01 = Android; C01 = phụ kiện. Mỗi điểm có đúng **mộ
 
 Wokwi cloud cần public broker. MQTT broker localhost dành cho automated integration tests, không trực tiếp truy cập được từ browser Wokwi cloud. Wi-Fi mặc định `Wokwi-GUEST`, password rỗng, channel 6.
 
+## Camera mô phỏng trong Wokwi
+
+Wokwi không có linh kiện camera, nên mỗi khu A/B/C có một **slide potentiometer** (CAM A/B/C, GPIO34/35/32) thay cho camera đếm người. Kéo thanh trượt chọn 0–4 người; firmware publish `{BASE}/vision/{A|B|C}` khi số đổi và nhịp 3s (nhanh hơn `VISION_STALE_SECONDS`=10). Chỉ gửi số người, không có hình ảnh. Bản tin vision là telemetry mất-được, không đi qua outbox LittleFS.
+
+
 ## Thao tác một nút
 
 | Trạng thái | Gesture | Event |

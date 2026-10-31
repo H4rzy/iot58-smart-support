@@ -1,5 +1,9 @@
 # Evidence cần ghi nhận
 
+[Diễn tập demo 2026-10-31](live-demo-results.json): Chrome nhìn thấy được với Node-RED/public MQTT thật; UI dispatch/ACK/DONE, publisher ARRIVED/CSAT/cancel, A escalation L2 và forecast. REQUEST/counts/event nút do publisher mô phỏng, không phải Wokwi hoặc webcam thật. Hướng dẫn lặp lại ở [HUONG_DAN_DEMO](../docs/HUONG_DAN_DEMO.md).
+
+[Webcam browser results](webcam-browser-results.json), ngày2026-10-31: Chrome fake media device + recorded state fixture. Chứng minh UI webcam, JPEG/IndexedDB, persistence/delete/capacity, permission/offline/mobile; không phải ảnh từ webcam vật lý. Không tạo screenshot camera giả làm bằng chứng phần cứng.
+
 Không dùng screenshot giả. Ảnh browser thật chỉ chứng minh những phần đã chạy; không thay bằng chứng Wokwi LED hoặc Telegram live. Không để token, password hoặc private chat information trong ảnh.
 
 ## Ảnh UI đã chụp khi kiểm thử

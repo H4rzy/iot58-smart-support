@@ -405,10 +405,11 @@
       const snapshot = await request('/state');
       if (!Array.isArray(snapshot.tickets) || !Array.isArray(snapshot.staff) || !snapshot.metrics) throw new Error('State API không đúng contract.');
       state = snapshot;
+      document.dispatchEvent(new CustomEvent('iot58:state', { detail: snapshot }));
       setReachable(true);
       $('last-update').textContent = time(new Date().toISOString());
       render(snapshot);
-    } catch (error) { setReachable(false, error.message); }
+    } catch (error) { document.dispatchEvent(new Event('iot58:offline')); setReachable(false, error.message); }
     finally { polling = false; }
   }
 

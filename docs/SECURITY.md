@@ -27,6 +27,8 @@ Không mở Node-RED editor ra Internet với cấu hình demo mặc định. AP
 
 ## Camera (vision)
 
+Luồng đếm người bên dưới và webcam chụp ticket trên Dashboard là hai chức năng riêng. Dashboard từ2026-10-31 có webcam tùy chọn, xin quyền video khi bấm bật, không lấy audio. Chỉ thao tác **Chụp ảnh** mới lưu JPEG vào IndexedDB của origin hiện tại; không upload server/MQTT, không đồng bộ sang máy khác. Tối đa20 ảnh, mỗi ticket giữ ảnh mới nhất, có xóa từng ảnh/xóa toàn bộ. Reset demo không xóa ảnh; xóa ảnh hoặc dữ liệu website sau buổi demo. Thiết bị dùng chung có thể xem ảnh đã lưu; chỉ chụp vật mẫu/người đồng ý, không chụp dữ liệu nhạy cảm. Trang cần localhost hoặc HTTPS. API_TOKEN bảo vệ mutation server, không khóa kho ảnh cục bộ trong browser.
+
 - Camera xử lý tại biên: chỉ đếm người theo khu A/B/C và gửi số nguyên `persons` qua `BASE/vision/{zone}`. Không gửi ảnh, không gửi video, không gửi thông tin nhận diện.
 - Không ghi ảnh ra đĩa trong `vision/publisher.py`. Khung hình chỉ nằm trong bộ nhớ của một vòng lặp. Đây là điều kiện thiết kế; mới chỉ rà soát mã nguồn, chưa có kiểm thử tự động cho việc này (xem AC60 trong ACCEPTANCE_MATRIX).
 - Không nhận diện khuôn mặt, không nhận diện danh tính, không gắn số người với khách cụ thể. `camera_id` chỉ là nhãn thiết bị.

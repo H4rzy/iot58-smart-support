@@ -7,6 +7,7 @@
   <title>Máy lấy số / gọi nhân viên hỗ trợ thông minh · HUIT</title>
   <link rel="stylesheet" href="styles.css">
   <script src="app.js" defer></script>
+  <script src="camera.js" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Đến nội dung chính</a>
@@ -35,7 +36,16 @@
       <div class="section-heading"><div><span class="eyebrow">CAMERA PRESENCE</span><h2>Camera xác nhận có người</h2></div><span class="subtle">Đếm số người theo khu A / B / C</span></div>
       <div id="vision-disabled" class="notice notice-warning" role="status" hidden>Camera đang tắt (VISION_ENABLED=false). Hệ thống chỉ chạy theo nút bấm.</div>
       <div class="camera-grid" id="camera-grid" aria-label="Camera theo khu"></div>
-      <p class="privacy-note"><span aria-hidden="true">●</span> Camera chỉ gửi số người, không lưu hình</p>
+      <p class="privacy-note"><span aria-hidden="true">●</span> Luồng đếm người chỉ gửi số người, không lưu hình. Webcam chụp ticket bên dưới hoạt động riêng, chỉ lưu khi bạn bấm chụp.</p>
+      <article class="panel webcam-panel" id="webcam-section">
+        <div class="panel-heading"><div><span class="eyebrow">OPTIONAL / LOCAL WEBCAM</span><h2>Ảnh khu vực gắn với ticket</h2></div><span id="webcam-badge" class="badge badge-neutral">CAMERA TẮT</span></div>
+        <div class="webcam-layout">
+          <div class="webcam-stage"><video id="webcam-video" autoplay muted playsinline aria-label="Hình trực tiếp từ webcam laptop" hidden></video><div id="webcam-placeholder"><span aria-hidden="true">◎</span><strong>Quan sát trước khi nhận việc</strong><p>Bật webcam laptop để xem khu vực và chụp ảnh cho ticket đã chọn.</p></div></div>
+          <div class="webcam-controls"><label for="webcam-ticket">Ticket cần gắn ảnh</label><select id="webcam-ticket"><option value="">Chờ dữ liệu ticket…</option></select><div class="button-row"><button type="button" class="button" id="webcam-start">Bật webcam</button><button type="button" class="button secondary" id="webcam-stop" disabled>Tắt</button></div><button type="button" class="button" id="webcam-capture" disabled>Chụp ảnh cho ticket</button><p id="webcam-status" role="status" aria-live="polite">Camera tùy chọn. Queue vẫn hoạt động khi camera tắt.</p><p class="webcam-local-note">Ảnh chỉ lưu trong trình duyệt trên máy này, không gửi MQTT/server và không chia sẻ sang máy khác. Bật camera không tự đếm người hoặc xác nhận ARRIVED.</p></div>
+        </div>
+        <div class="webcam-snapshot" id="webcam-snapshot" hidden><img id="webcam-photo" alt="Ảnh webcam gắn với ticket đã chọn"><div><strong id="webcam-photo-title"></strong><p id="webcam-photo-time"></p><div class="button-row"><a id="webcam-download" class="button secondary" download>Tải ảnh</a><button type="button" class="button ghost" id="webcam-delete">Xóa ảnh ticket này</button></div></div></div>
+        <div class="webcam-storage"><span>Tối đa 20 ảnh; mỗi ticket giữ ảnh chụp mới nhất. Reset demo không tự xóa ảnh cục bộ.</span><button type="button" class="button ghost" id="webcam-clear">Xóa toàn bộ ảnh đã lưu</button></div>
+      </article>
     </section>
     <section id="queue-section" class="panel section-anchor">
       <div class="panel-heading"><div><span class="eyebrow">GLOBAL QUEUE</span><h2>Yêu cầu đang phục vụ <span id="queue-count" class="count-label">0</span></h2></div><div class="legend"><span><i class="legend-dot waiting"></i> Chờ</span><span><i class="legend-dot accepted"></i> Đã nhận</span><span><i class="legend-dot arrived"></i> Đã đến</span></div></div>
